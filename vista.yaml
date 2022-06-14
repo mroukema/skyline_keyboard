@@ -1,0 +1,330 @@
+units:
+    # Planned for choc switches with MX sized keys (work louder keycaps)
+    x: U # 19.05 MX spacing
+    y: U # 19.05 MX spacing
+    key_spacing: U
+    outerpinky_splay: 0
+    pinky_splay: -0
+    ring_splay: -3
+    middle_splay: -3
+    index_splay: -5
+    indexouter_splay: -0
+    thumb_splay: -7
+    mc_width: 20
+    mc_height: 36
+    trrs_width: 6.1
+    trrs_height: 12.2
+    rswitch_width: 6.1
+    rswitch_height: 4
+    pswitch_width: 7
+    pswitch_height: 3
+    default_binding: 0.5
+    df: default_binding
+
+
+points:
+  key:
+    padding: key_spacing
+    bind: df
+    footprints:
+
+        choc_hotswap:
+          type: choc
+          nets:
+            from: =column_net
+            to: GND
+          params:
+              keycaps: true
+              reverse: true
+              hotswap: true
+        choc:
+          type: choc
+          anchor:
+            rotate: 180
+          nets:
+            from: =column_net
+            to: GND
+          params:
+              keycaps: true
+              reverse: true
+        diode:
+          - type: diode
+            anchor:
+              shift: [0, -4.7]
+            nets:
+              from: =row_net
+              to: =colrow
+
+  zones:
+    matrix:
+      anchor:
+        # Apply rotation so that middle finger column is always vertical
+        rotate: -1 * (middle_splay + ring_splay + pinky_splay + outerpinky_splay)
+      columns:
+        pinky_outer:
+          stagger: 0
+          rotate: outerpinky_splay
+          key:
+            bind: [3 + df, df, df, df]
+            column_net: 4
+          row_overrides:
+            bottom:
+            middle:
+            top:
+          #row_overrides:
+          #   bottom:
+          #      shift: [0,0]
+          #    middle:
+          #      name: outer_pinky_tall
+          #      shift: [0,y/2]
+          #      width: 2
+          #      # Rotate to allow use of 2U width key as 2U height key
+          #      rotate: 90
+
+        pinky:
+          rotate: pinky_splay
+          stagger: 3
+          key:
+            column_net: 5
+          row_overrides:
+            bottom:
+              bind: [df, 5, 3 + df, df]
+            middle:
+              bind: [df, 6, df, df]
+            top:
+              bind: [df, 7, df, df]
+        ring:
+          stagger: 20
+          spread: 23
+          rotate: ring_splay
+          origin: [0,0]
+          key:
+            column_net: 6
+          row_overrides:
+            alt:
+             shift: [0, -U]
+             bind: [df, df, 4.4 + df, df]
+             row_net: P18
+            bottom:
+              shift: [0, -U]
+            middle:
+              shift: [0, -U]
+              bind: [2, 3, df, df]
+            top:
+              shift: [0, -U]
+              bind: [df, 3, 2, df]
+        middle:
+          stagger: 10
+          spread: 1.04 * U
+          rotate: middle_splay
+          key:
+            column_net: 7
+          row_overrides:
+            bottom:
+              bind: [df, 2, df, 1]
+            middle:
+              bind: [df, 4, df, df]
+            top:
+
+        index:
+          stagger: -15
+          spread: 0.99 * U
+          rotate: index_splay
+          key:
+            column_net: 8
+          row_overrides:
+            alt:
+             shift: [0, -U]
+             bind: [df, df, 11 + df, df]
+             row_net: P18
+            bottom:
+              shift: [0, -U]
+            middle:
+              shift: [0, -U]
+            top:
+              shift: [0, -U]
+              bind: [df, df, df, 5]
+
+        index_far:
+          stagger: -5
+          rotate: indexouter_splay
+          key:
+            column_net: 9
+          row_overrides:
+            bottom:
+              bind: [df, df, 7 + df, df]
+            middle:
+            top:
+              bind: [5 + df, df, df, df]
+
+      rows:
+        bottom:
+          row_net: P21
+        middle:
+          row_net: P20
+        top:
+          row_net: P19
+
+    thumb:
+      anchor:
+        shift: [0, -25]
+        rotate: -0
+        ref: matrix_index_far_bottom
+      columns:
+        home:
+          key:
+            column_net: 4
+        alt:
+          rotate: thumb_splay
+          origin: [-10, 0]
+          spread: 21
+          key:
+            bind: [df, 2, df, 4]
+            column_net: 5
+
+        far:
+          rotate: thumb_splay
+          origin: [-10, 0]
+          spread: 21
+          key:
+            bind: [df, df, df, 1.5]
+            column_net: 6
+      rows:
+        arc:
+          row_net: P10
+
+
+outlines:
+  glue:
+    microcontroller:
+      top:
+        left:
+          ref: matrix_pinky_top
+        right:
+          ref: matrix_ring_middle
+      bottom:
+        left:
+          ref: matrix_pinky_bottom
+        right:
+          ref: matrix_ring_alt
+  exports:
+    raw_keys:
+      - type: keys
+        # glue: microcontroller
+        side: left
+        size: [x,y]
+        corner: 0
+    unbound_keys:
+      - type: keys
+        side: left
+        size: [x - 0.06,y - 0.01]
+        bound: false
+        glue: microcontroller
+    mc:
+      - type: rectangle
+        size: [mc_width, mc_height]
+        anchor:
+         ref: thumb_alt_arc
+         shift: [-x/2 - 1.1, y/2 + 1]
+    trrs:
+      - type: rectangle
+        size: [trrs_width, trrs_height]
+        anchor:
+          ref: thumb_far_arc
+          shift: [x/2 + df - 0.1, y/2 + 2.2]
+          rotate: 90
+    rswitch:
+      - type: rectangle
+        size: [rswitch_width, rswitch_height]
+        anchor:
+          ref: thumb_far_arc
+          shift: [-6, y/2 + 4]
+          rotate: 90
+    pswitch:
+      - type: rectangle
+        size: [pswitch_width, pswitch_height]
+        anchor:
+          ref: thumb_far_arc
+          shift: [-2.5, y + 1]
+    component_panel:
+      - type: rectangle
+        size: [30 + df, 14.7]
+        anchor:
+          ref: thumb_far_arc
+          shift: [-x - 1.4, y/2 - 1.3 ]
+      - type: rectangle
+        size: [27 , 37.1]
+        anchor:
+          ref: thumb_alt_arc
+          shift: [-x + 1.7, y/2 - 0.1]
+    component_panel_populated:
+      - type: outline
+        name: component_panel
+      - type: outline
+        operation: stack
+        name: trrs
+      - type: outline
+        operation: stack
+        name: rswitch
+      - type: outline
+        operation: stack
+        name: pswitch
+      - type: outline
+        operation: stack
+        name: mc
+    component_switch_layout:
+      - type: outline
+        name: unbound_keys
+      - type: outline
+        name: mc
+      - type: outline
+        name: trrs
+      - type: outline
+        name: rswitch
+      - type: outline
+        name: pswitch
+    panel_raw:
+      - type: outline
+        name: raw_keys
+      - type: outline
+        name: mc
+      - type: outline
+        name: component_panel
+    panel:
+      - type: outline
+        name: panel_raw
+        fillet: 2
+    superposition:
+      - type: outline
+        name: panel
+      - type: outline
+        operation: stack
+        name: unbound_keys
+      - type: outline
+        operation: stack
+        name: trrs
+      - type: outline
+        operation: stack
+        name: rswitch
+      - type: outline
+        operation: stack
+        name: pswitch
+      - type: outline
+        operation: stack
+        name: mc
+
+
+pcbs:
+  vista_pcb:
+    outlines:
+      main:
+        outline: panel
+    footprints:
+      promicro:
+        type: promicro
+        anchor:
+          ref: thumb_alt_arc
+          shift: [0, 0]
+          rotate: 0
+        params:
+          orientation: down
