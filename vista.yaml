@@ -48,12 +48,12 @@ points:
               keycaps: true
               reverse: true
         diode:
-          - type: diode
-            anchor:
-              shift: [0, -4.7]
-            nets:
-              from: =row_net
-              to: =colrow
+          type: diode
+          anchor:
+            shift: [0, -4.7]
+          nets:
+            from: =row_net
+            to: =colrow
 
   zones:
     matrix:
@@ -66,7 +66,7 @@ points:
           rotate: outerpinky_splay
           key:
             bind: [3 + df, df, df, df]
-            column_net: 4
+            column_net: P4
           row_overrides:
             bottom:
             middle:
@@ -85,7 +85,7 @@ points:
           rotate: pinky_splay
           stagger: 3
           key:
-            column_net: 5
+            column_net: P5
           row_overrides:
             bottom:
               bind: [df, 5, 3 + df, df]
@@ -99,7 +99,7 @@ points:
           rotate: ring_splay
           origin: [0,0]
           key:
-            column_net: 6
+            column_net: P6
           row_overrides:
             alt:
              shift: [0, -U]
@@ -118,7 +118,7 @@ points:
           spread: 1.04 * U
           rotate: middle_splay
           key:
-            column_net: 7
+            column_net: P7
           row_overrides:
             bottom:
               bind: [df, 2, df, 1]
@@ -131,7 +131,7 @@ points:
           spread: 0.99 * U
           rotate: index_splay
           key:
-            column_net: 8
+            column_net: P8
           row_overrides:
             alt:
              shift: [0, -U]
@@ -149,7 +149,7 @@ points:
           stagger: -5
           rotate: indexouter_splay
           key:
-            column_net: 9
+            column_net: P9
           row_overrides:
             bottom:
               bind: [df, df, 7 + df, df]
@@ -173,14 +173,14 @@ points:
       columns:
         home:
           key:
-            column_net: 4
+            column_net: P4
         alt:
           rotate: thumb_splay
           origin: [-10, 0]
           spread: 21
           key:
             bind: [df, 2, df, 4]
-            column_net: 5
+            column_net: P5
 
         far:
           rotate: thumb_splay
@@ -188,7 +188,7 @@ points:
           spread: 21
           key:
             bind: [df, df, df, 1.5]
-            column_net: 6
+            column_net: P6
       rows:
         arc:
           row_net: P10
