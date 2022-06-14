@@ -326,21 +326,37 @@ pcbs:
           orientation: down
       pswitch_pcb:
         type: slider
+        nets:
+          from: undefined
+          to: undefined
+        params:
+          symmetric: true
         anchor:
           ref: thumb_far_arc
           shift: [pswitch_shift_x, pswitch_shift_y]
           rotate: 0
+      trrs_pcb:
+        type: trrs
+        nets:
+          A: GND
+          B: GND
+          C: P2
+          D: VCC
         params:
-          side: 'F'
-      #trrs_pcb:
-      #  type: trrs
-      #  anchor:
-      #    ref: thumb_far_arc
-      #    shift: [trrs_shift_x, trrs_shift_y]
-      #    rotate: 90
-      #rswitch_pcb:
-      #  type: alps
-      #  anchor:
-      #    ref: thumb_far_arc
-      #    shift: [rswitch_shift_x, rswitch_shift_y]
-      #    rotate: 90
+          reverse: true
+          symmetric: true
+        anchor:
+          ref: thumb_far_arc
+          shift: [trrs_shift_x, trrs_shift_y]
+          rotate: 90
+      rswitch_pcb:
+        type: alps
+        nets:
+          from: RST
+          to: GND
+        params:
+          symmetric: true
+        anchor:
+          ref: thumb_far_arc
+          shift: [rswitch_shift_x, rswitch_shift_y]
+          rotate: 90
