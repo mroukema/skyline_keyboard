@@ -2,6 +2,8 @@ units:
     # Planned for choc switches with MX sized keys (work louder keycaps)
     x: U # 19.05 MX spacing
     y: U # 19.05 MX spacing
+    default_binding: 0.5
+    df: default_binding
     key_spacing: U
     outerpinky_splay: 0
     pinky_splay: -0
@@ -12,14 +14,20 @@ units:
     thumb_splay: -7
     mc_width: 20
     mc_height: 36
+    mc_shift_x: -x/2 - 1.1
+    mc_shift_y: y/2 + 1
     trrs_width: 6.1
     trrs_height: 12.2
+    trrs_shift_x: x/2 + df - 0.1
+    trrs_shift_y: y/2 + 2.2
     rswitch_width: 6.1
     rswitch_height: 4
+    rswitch_shift_x: -6
+    rswitch_shift_y: y/2 + 4
     pswitch_width: 7
     pswitch_height: 3
-    default_binding: 0.5
-    df: default_binding
+    pswitch_shift_x: -2.5
+    pswitch_shift_y: y + 1
 
 
 points:
@@ -225,27 +233,27 @@ outlines:
         size: [mc_width, mc_height]
         anchor:
          ref: thumb_alt_arc
-         shift: [-x/2 - 1.1, y/2 + 1]
+         shift: [mc_shift_x, mc_shift_y]
     trrs:
       - type: rectangle
         size: [trrs_width, trrs_height]
         anchor:
           ref: thumb_far_arc
-          shift: [x/2 + df - 0.1, y/2 + 2.2]
+          shift: [trrs_shift_x, trrs_shift_y]
           rotate: 90
     rswitch:
       - type: rectangle
         size: [rswitch_width, rswitch_height]
         anchor:
           ref: thumb_far_arc
-          shift: [-6, y/2 + 4]
+          shift: [rswitch_shift_x, rswitch_shift_y]
           rotate: 90
     pswitch:
       - type: rectangle
         size: [pswitch_width, pswitch_height]
         anchor:
           ref: thumb_far_arc
-          shift: [-2.5, y + 1]
+          shift: [pswitch_shift_x, pswitch_shift_y]
     component_panel:
       - type: rectangle
         size: [30 + df, 14.7]
@@ -299,19 +307,7 @@ outlines:
         name: panel
       - type: outline
         operation: stack
-        name: unbound_keys
-      - type: outline
-        operation: stack
-        name: trrs
-      - type: outline
-        operation: stack
-        name: rswitch
-      - type: outline
-        operation: stack
-        name: pswitch
-      - type: outline
-        operation: stack
-        name: mc
+        name: component_switch_layout
 
 
 pcbs:
@@ -320,11 +316,31 @@ pcbs:
       main:
         outline: panel
     footprints:
-      promicro:
+      mc_pcb:
         type: promicro
         anchor:
           ref: thumb_alt_arc
-          shift: [0, 0]
+          shift: [mc_shift_x, mc_shift_y]
           rotate: 0
         params:
           orientation: down
+      pswitch_pcb:
+        type: slider
+        anchor:
+          ref: thumb_far_arc
+          shift: [pswitch_shift_x, pswitch_shift_y]
+          rotate: 0
+        params:
+          side: 'F'
+      #trrs_pcb:
+      #  type: trrs
+      #  anchor:
+      #    ref: thumb_far_arc
+      #    shift: [trrs_shift_x, trrs_shift_y]
+      #    rotate: 90
+      #rswitch_pcb:
+      #  type: alps
+      #  anchor:
+      #    ref: thumb_far_arc
+      #    shift: [rswitch_shift_x, rswitch_shift_y]
+      #    rotate: 90
