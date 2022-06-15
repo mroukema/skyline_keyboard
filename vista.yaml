@@ -14,8 +14,8 @@ units:
     thumb_splay: -7
     mc_width: 32
     mc_height: 18
-    mc_shift_x: +x/2 - 0.4 + df
-    mc_shift_y: y/2 + 1
+    mc_shift_x: +x/2 + df + 0.5
+    mc_shift_y: y/2 + 2
     mc_pcb_offset_x: 0 - x/2
     mc_pcb_offset_y: y - 4
     trrs_width: 6.1
@@ -26,11 +26,13 @@ units:
     rswitch_height: 4
     rswitch_shift_x: -x/2 - 0.5
     rswitch_shift_y: y/2 + mc_height + 3
+    rswitch_pcb_offset_x: 2
+    rswitch_pcb_offset_y: 0
     pswitch_width: 6.5
     pswitch_height: 3
-    pswitch_shift_x: -x +2
-    pswitch_shift_y: y + mc_height + 2.3
-    pswitch_pcb_offset_x: 0
+    pswitch_shift_x: -x + 3.5
+    pswitch_shift_y: y + mc_height + 4
+    pswitch_pcb_offset_x: 3
     pswitch_pcb_offset_y: 1
 
 
@@ -49,6 +51,17 @@ points:
               keycaps: true
               # reverse: true
               hotswap: true
+        mx_hotswap:
+          type: mx
+          nets:
+            from: GND
+            to: =column_net
+          anchor:
+            rotate: 180
+          params:
+              keycaps: true
+              # reverse: true
+              hotswap: true
         #choc:
         #  type: choc
         #  anchor:
@@ -59,13 +72,13 @@ points:
         #  params:
         #      keycaps: true
         #      reverse: true
-        diode:
-          type: diode
-          anchor:
-            shift: [0, -4.7]
-          nets:
-            from: =row_net
-            to: =colrow
+        #diode:
+        #  type: diode
+        #  anchor:
+        #    shift: [0, -4.7]
+        #  nets:
+        #    from: =row_net
+        #    to: =colrow
 
   zones:
     matrix:
@@ -266,10 +279,10 @@ outlines:
           ref: thumb_far_arc
           shift: [-x - 1.4, trrs_width - 2 ]
       - type: rectangle
-        size: [27 , mc_height + y - 3.6]
+        size: [28 , mc_height + y]
         anchor:
           ref: thumb_alt_arc
-          shift: [-x + 1.7, y/2 - 0.1]
+          shift: [-x + 1.7, y/2 - 2.6]
     component_panel_populated:
       - type: outline
         name: component_panel
@@ -337,7 +350,7 @@ pcbs:
         params:
           symmetric: true
         anchor:
-          ref: thumb_far_arc
+          ref: thumb_alt_arc
           shift: [pswitch_shift_x + pswitch_pcb_offset_x, pswitch_shift_y + pswitch_pcb_offset_y]
           rotate: 0
       trrs_pcb:
@@ -361,6 +374,6 @@ pcbs:
         params:
           symmetric: true
         anchor:
-          ref: thumb_far_arc
-          shift: [rswitch_shift_x, rswitch_shift_y]
+          ref: thumb_alt_arc
+          shift: [rswitch_shift_x + rswitch_pcb_offset_x, rswitch_shift_y + rswitch_pcb_offset_y]
           rotate: 90
