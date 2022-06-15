@@ -2,7 +2,7 @@ units:
     # Planned for choc switches with MX sized keys (work louder keycaps)
     x: U # 19.05 MX spacing
     y: U # 19.05 MX spacing
-    default_binding: 0.2
+    default_binding: 0.4
     df: default_binding
     key_spacing: U
     outerpinky_splay: 0
@@ -12,22 +12,26 @@ units:
     index_splay: -5
     indexouter_splay: -0
     thumb_splay: -7
-    mc_width: 36
-    mc_height: 20
+    mc_width: 32
+    mc_height: 18
     mc_shift_x: +x/2 - 0.4 + df
     mc_shift_y: y/2 + 1
+    mc_pcb_offset_x: 0 - x/2
+    mc_pcb_offset_y: y - 4
     trrs_width: 6.1
     trrs_height: 12.2
     trrs_shift_x: x/2 + df - 0.1
     trrs_shift_y: y/2 + 2.2
     rswitch_width: 6.1
     rswitch_height: 4
-    rswitch_shift_x: -6
-    rswitch_shift_y: y/2 + 4
-    pswitch_width: 7
+    rswitch_shift_x: -x/2 - 0.5
+    rswitch_shift_y: y/2 + mc_height + 3
+    pswitch_width: 6.5
     pswitch_height: 3
-    pswitch_shift_x: -2.5
-    pswitch_shift_y: y + 1
+    pswitch_shift_x: -x +2
+    pswitch_shift_y: y + mc_height + 2.3
+    pswitch_pcb_offset_x: 0
+    pswitch_pcb_offset_y: 1
 
 
 points:
@@ -43,18 +47,18 @@ points:
             to: GND
           params:
               keycaps: true
-              reverse: true
+              # reverse: true
               hotswap: true
-        choc:
-          type: choc
-          anchor:
-            rotate: 180
-          nets:
-            from: =column_net
-            to: GND
-          params:
-              keycaps: true
-              reverse: true
+        #choc:
+        #  type: choc
+        #  anchor:
+        #    rotate: 180
+        #  nets:
+        #    from: =column_net
+        #    to: GND
+        #  params:
+        #      keycaps: true
+        #      reverse: true
         diode:
           type: diode
           anchor:
@@ -246,23 +250,23 @@ outlines:
       - type: rectangle
         size: [rswitch_width, rswitch_height]
         anchor:
-          ref: thumb_far_arc
+          ref: thumb_alt_arc
           shift: [rswitch_shift_x, rswitch_shift_y]
           rotate: 90
     pswitch:
       - type: rectangle
         size: [pswitch_width, pswitch_height]
         anchor:
-          ref: thumb_far_arc
+          ref: thumb_alt_arc
           shift: [pswitch_shift_x, pswitch_shift_y]
     component_panel:
       - type: rectangle
         size: [30 + df, 14.7]
         anchor:
           ref: thumb_far_arc
-          shift: [-x - 1.4, y/2 - 1.3 ]
+          shift: [-x - 1.4, trrs_width - 2 ]
       - type: rectangle
-        size: [27 , 37.1]
+        size: [27 , mc_height + y - 3.6]
         anchor:
           ref: thumb_alt_arc
           shift: [-x + 1.7, y/2 - 0.1]
@@ -321,8 +325,8 @@ pcbs:
         type: promicro
         anchor:
           ref: thumb_alt_arc
-          shift: [mc_shift_x, mc_shift_y]
-          rotate: 0
+          shift: [mc_shift_x + mc_pcb_offset_x, mc_shift_y + mc_pcb_offset_y]
+          rotate: 270
         params:
           orientation: down
       pswitch_pcb:
@@ -334,7 +338,7 @@ pcbs:
           symmetric: true
         anchor:
           ref: thumb_far_arc
-          shift: [pswitch_shift_x, pswitch_shift_y]
+          shift: [pswitch_shift_x + pswitch_pcb_offset_x, pswitch_shift_y + pswitch_pcb_offset_y]
           rotate: 0
       trrs_pcb:
         type: trrs
@@ -348,7 +352,7 @@ pcbs:
         anchor:
           ref: thumb_far_arc
           shift: [trrs_shift_x, trrs_shift_y]
-          rotate: 90
+          rotate: 270
       rswitch_pcb:
         type: alps
         nets:
