@@ -2,7 +2,7 @@ units:
     # Planned for choc switches with MX sized keys (work louder keycaps)
     x: U # 19.05 MX spacing
     y: U # 19.05 MX spacing
-    default_binding: 0.5
+    default_binding: 0.2
     df: default_binding
     key_spacing: U
     outerpinky_splay: 0
@@ -12,9 +12,9 @@ units:
     index_splay: -5
     indexouter_splay: -0
     thumb_splay: -7
-    mc_width: 20
-    mc_height: 36
-    mc_shift_x: -x/2 - 1.1
+    mc_width: 36
+    mc_height: 20
+    mc_shift_x: +x/2 - 0.4 + df
     mc_shift_y: y/2 + 1
     trrs_width: 6.1
     trrs_height: 12.2
@@ -234,6 +234,7 @@ outlines:
         anchor:
          ref: thumb_alt_arc
          shift: [mc_shift_x, mc_shift_y]
+         rotate: 90
     trrs:
       - type: rectangle
         size: [trrs_width, trrs_height]
@@ -343,7 +344,6 @@ pcbs:
           C: P2
           D: VCC
         params:
-          reverse: true
           symmetric: true
         anchor:
           ref: thumb_far_arc
