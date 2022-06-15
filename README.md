@@ -1,5 +1,5 @@
 # Skyline Keyboard   
-`v0.8`
+`v0.9`
 
 Source files for the vista keyboard project
 
