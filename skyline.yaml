@@ -34,7 +34,9 @@ units:
     pswitch_shift_y: y + mc_height + 4
     pswitch_pcb_offset_x: 3
     pswitch_pcb_offset_y: 1
-
+    dConnection_anchor_x: 0
+    dConnection_anchor_y: -3.9 * y
+    panel_fillet: 2
 
 points:
   key:
@@ -245,6 +247,37 @@ outlines:
         size: [x - 0.06,y - 0.01]
         bound: false
         glue: microcontroller
+    3dConnection_outer:
+      - type: circle
+        radius: 25.1
+        anchor:
+          ref: matrix_middle_bottom
+          shift: [dConnection_anchor_x, dConnection_anchor_y]
+    3dConnection_inner:
+      - type: circle
+        radius: 20.1
+        anchor:
+          ref: matrix_middle_bottom
+          shift: [dConnection_anchor_x, dConnection_anchor_y]
+      - type: rectangle
+        size: [3, 1.5]
+        anchor:
+          ref: matrix_middle_bottom
+          shift: [dConnection_anchor_x - 1.5, dConnection_anchor_y + 20]
+    3dConnection_bridge:
+      - name: 3dConnection_outer
+      - type: rectangle
+        size: [15, 10]
+        anchor:
+          ref: matrix_middle_bottom
+          shift: [dConnection_anchor_x - 1.0, dConnection_anchor_y + 15.12]
+          rotate: -1 * (middle_splay)
+      - type: rectangle
+        size: [15, 30]
+        anchor:
+          ref: matrix_middle_bottom
+          shift: [dConnection_anchor_x + 10.1, dConnection_anchor_y]
+          rotate: index_splay
     mc:
       - type: rectangle
         size: [mc_width, mc_height]
@@ -309,6 +342,9 @@ outlines:
         name: rswitch
       - type: outline
         name: pswitch
+    panel_keys_only:
+      - type: outline
+        name: raw_keys
     panel_raw:
       - type: outline
         name: raw_keys
@@ -319,13 +355,62 @@ outlines:
     panel:
       - type: outline
         name: panel_raw
-        fillet: 2
+        fillet: panel_fillet
+    switch_plate:
+      - type: keys
+        side: left
+        size: [14, 14]
+        bound: false
+      - type: outline
+        operation: stack
+        name: panel_keys_only
+        fillet: panel_fillet
     superposition:
       - type: outline
         name: panel
       - type: outline
         operation: stack
         name: component_switch_layout
+    experimental:
+      - type: outline
+        name: panel
+      - type: outline
+        operation: stack
+        name: component_switch_layout
+      - type: outline
+        operation: add
+        name: 3dConnection_outer
+    experimental_plate_outline_raw:
+      - type: outline
+        name: panel_keys_only
+      - type: outline
+        name: 3dConnection_bridge
+      - type: outline
+        name: 3dConnection_inner
+    experimental_plate_outline:
+      - type: outline
+        name: experimental_plate_outline_raw
+        fillet: panel_fillet
+    experimental_plate:
+      - type: keys
+        side: left
+        size: [14, 14]
+        bound: false
+      - type: outline
+        operation: stack
+        name: experimental_plate_outline
+        fillet: 0.3
+      - name: 3dConnection_inner
+        operation: stack
+    experimental_base:
+      - name: panel_raw
+        fillet: panel_fillet
+      - type: outline
+        name: experimental_plate_outline_raw
+        fillet: panel_fillet
+      - name: component_panel
+        fillet: panel_fillet
+
 
 
 pcbs:
