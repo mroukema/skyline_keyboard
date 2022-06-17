@@ -537,7 +537,7 @@ outlines:
 
 
 pcbs:
-  vista_pcb:
+  skyline_pcb:
     outlines:
       main:
         outline: panel
