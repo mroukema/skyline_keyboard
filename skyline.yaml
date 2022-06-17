@@ -37,7 +37,7 @@ units:
     dConnection_anchor_x: 0
     dConnection_anchor_y: -3.9 * y
     panel_fillet: 2
-    diode_shift_x: -0.4X + 3
+    diode_shift_x: -0.4x + 3
     diode_shift_y: -12
 
 
