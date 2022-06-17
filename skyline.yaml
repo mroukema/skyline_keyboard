@@ -37,6 +37,9 @@ units:
     dConnection_anchor_x: 0
     dConnection_anchor_y: -3.9 * y
     panel_fillet: 2
+    diode_shift_x: -0.4X + 3
+    diode_shift_y: -12
+
 
 points:
   key:
@@ -48,7 +51,7 @@ points:
           type: choc
           nets:
             from: =column_net
-            to: GND
+            to: =row_net
           params:
               keycaps: true
               # reverse: true
@@ -56,7 +59,7 @@ points:
         mx_hotswap:
           type: mx
           nets:
-            from: GND
+            from: =row_net
             to: =column_net
           anchor:
             rotate: 180
@@ -74,13 +77,6 @@ points:
         #  params:
         #      keycaps: true
         #      reverse: true
-        #diode:
-        #  type: diode
-        #  anchor:
-        #    shift: [0, -4.7]
-        #  nets:
-        #    from: =row_net
-        #    to: =colrow
 
   zones:
     matrix:
@@ -97,7 +93,25 @@ points:
           row_overrides:
             bottom:
             middle:
+              footprints:
+              diode:
+                type: diode
+                anchor:
+                  shift: [diode_shift_x, diode_shift_y]
+                  rotate: 90
+                nets:
+                  from: =column_net
+                  to: =column_net
             top:
+              footprints:
+              diode:
+                type: diode
+                anchor:
+                  shift: [diode_shift_x, diode_shift_y]
+                  rotate: 90
+                nets:
+                  from: =column_net
+                  to: =column_net
           #row_overrides:
           #   bottom:
           #      shift: [0,0]
@@ -125,21 +139,49 @@ points:
           spread: 23
           rotate: ring_splay
           origin: [0,0]
+
           key:
             column_net: P6
           row_overrides:
             alt:
-             shift: [0, -U]
-             bind: [df, df, 4.4 + df, df]
-             row_net: P18
+              shift: [0, -U]
+              bind: [df, df, 4.4 + df, df]
+              row_net: P18
             bottom:
               shift: [0, -U]
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
             middle:
               shift: [0, -U]
               bind: [2, 3, df, df]
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
             top:
               shift: [0, -U]
               bind: [df, 3, 2, df]
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
         middle:
           stagger: 10
           spread: 1.04 * U
@@ -151,7 +193,25 @@ points:
               bind: [df, 2, df, 1]
             middle:
               bind: [df, 4, df, df]
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
             top:
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
 
         index:
           stagger: -15
@@ -161,16 +221,43 @@ points:
             column_net: P8
           row_overrides:
             alt:
-             shift: [0, -U]
-             bind: [df, df, 11 + df, df]
-             row_net: P18
+              shift: [0, -U]
+              bind: [df, df, 11 + df, df]
+              row_net: P18
             bottom:
               shift: [0, -U]
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
             middle:
               shift: [0, -U]
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
             top:
               shift: [0, -U]
               bind: [df, df, df, 5]
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
 
         index_far:
           stagger: -5
@@ -181,16 +268,52 @@ points:
             bottom:
               bind: [df, df, 7 + df, df]
             middle:
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
             top:
               bind: [5 + df, df, df, df]
+              footprints:
+                diode:
+                  type: diode
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
 
       rows:
         bottom:
           row_net: P21
         middle:
           row_net: P20
+          footprints:
+              diode:
+                type: diode
+                anchor:
+                  shift: [diode_shift_x, diode_shift_y]
+                  rotate: 90
+                nets:
+                  from: =column_net
+                  to: =column_net
         top:
           row_net: P19
+          footprints:
+              diode:
+                type: diode
+                anchor:
+                  shift: [diode_shift_x, diode_shift_y]
+                  rotate: 90
+                nets:
+                  from: =column_net
+                  to: =column_net
 
     thumb:
       anchor:
@@ -200,14 +323,14 @@ points:
       columns:
         home:
           key:
-            column_net: P4
+            column_net: P9
         alt:
           rotate: thumb_splay
           origin: [-10, 0]
           spread: 21
           key:
             bind: [df, 2, df, 4]
-            column_net: P5
+            column_net: P8
 
         far:
           rotate: thumb_splay
@@ -215,7 +338,7 @@ points:
           spread: 21
           key:
             bind: [df, df, df, 1.5]
-            column_net: P6
+            column_net: P7
       rows:
         arc:
           row_net: P10
