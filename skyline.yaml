@@ -12,6 +12,7 @@ units:
     index_splay: -5
     indexouter_splay: -0
     thumb_splay: -7
+
     mc_width: 32
     mc_height: 18
     mc_shift_x: +x/2 + df + 0.5
@@ -34,11 +35,14 @@ units:
     pswitch_shift_y: y + mc_height + 4
     pswitch_pcb_offset_x: 3
     pswitch_pcb_offset_y: 1
+    diode_shift_x: -0.4x + 1.5
+    diode_shift_y: -12 
+
     dConnection_anchor_x: 0
     dConnection_anchor_y: -3.9 * y
+
     panel_fillet: 2
-    diode_shift_x: -0.4x + 3
-    diode_shift_y: -12
+    
 
 
 points:
@@ -88,7 +92,7 @@ points:
           stagger: 0
           rotate: outerpinky_splay
           key:
-            bind: [3 + df, df, df, df]
+            bind: [3.5 + df, df, df, df]
             column_net: P4
           row_overrides:
             bottom:
@@ -133,7 +137,7 @@ points:
             middle:
               bind: [df, 6, df, df]
             top:
-              bind: [df, 7, df, df]
+              bind: [0.5 + df, 7, df, df]
         ring:
           stagger: 20
           spread: 23
@@ -324,25 +328,37 @@ points:
         home:
           key:
             column_net: P9
+            bind: [df, df + 1, df + 0.02, df]
+            footprints:
+              diode:
+                type: diode
+                anchor:
+                  shift: [-0.4x + 1.5, 0.5y]
+                  rotate: 90
+                nets:
+                  from: =column_net
+                  to: =column_net
         alt:
           rotate: thumb_splay
           origin: [-10, 0]
           spread: 21
           key:
-            bind: [df, 2, df, 4]
-            column_net: P8
+            bind: [df + 0, df + 1.9, df, 4]
+            column_net: P16
 
         far:
           rotate: thumb_splay
           origin: [-10, 0]
           spread: 21
           key:
-            bind: [df, df, df, 1.5]
-            column_net: P7
+            bind: [df, df, df, 1.3]
+            column_net: P10
       rows:
         arc:
-          row_net: P10
-
+          row_net: P18
+  mirror:
+    ref: thumb_far_arc
+    distance: 2x
 
 outlines:
   glue:
@@ -362,6 +378,12 @@ outlines:
       - type: keys
         # glue: microcontroller
         side: left
+        size: [x,y]
+        corner: 0
+    raw_keys_right:
+      - type: keys
+        # glue: microcontroller
+        side: right
         size: [x,y]
         corner: 0
     unbound_keys:
@@ -537,7 +559,7 @@ outlines:
 
 
 pcbs:
-  skyline_pcb:
+  vista_pcb:
     outlines:
       main:
         outline: panel
@@ -564,12 +586,12 @@ pcbs:
       trrs_pcb:
         type: trrs
         nets:
-          A: GND
-          B: GND
-          C: P2
-          D: VCC
+          A: GND # Sleeve
+          B: P3  # Ring
+          C: P2  # Ring
+          D: VCC # Tip
         params:
-          symmetric: true
+          symmetric: false
         anchor:
           ref: thumb_far_arc
           shift: [trrs_shift_x, trrs_shift_y]
