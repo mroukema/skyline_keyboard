@@ -58,7 +58,7 @@ points:
             to: =row_net
           params:
               keycaps: true
-              # reverse: true
+              reverse: true
               hotswap: true
         mx_hotswap:
           type: mx
@@ -69,7 +69,7 @@ points:
             rotate: 180
           params:
               keycaps: true
-              # reverse: true
+              reverse: true
               hotswap: true
         #choc:
         #  type: choc
@@ -356,9 +356,9 @@ points:
       rows:
         arc:
           row_net: P18
-  mirror:
-    ref: thumb_far_arc
-    distance: 2x
+  # mirror:
+  #   ref: thumb_far_arc
+  #   distance: 2x
 
 outlines:
   glue:
@@ -559,7 +559,7 @@ outlines:
 
 
 pcbs:
-  vista_pcb:
+  skyline_pcb:
     outlines:
       main:
         outline: panel
@@ -572,6 +572,7 @@ pcbs:
           rotate: 270
         params:
           orientation: down
+          reverse: true
       pswitch_pcb:
         type: slider
         nets:
@@ -579,6 +580,7 @@ pcbs:
           to: undefined
         params:
           symmetric: true
+          reverse: true 
         anchor:
           ref: thumb_alt_arc
           shift: [pswitch_shift_x + pswitch_pcb_offset_x, pswitch_shift_y + pswitch_pcb_offset_y]
@@ -592,6 +594,7 @@ pcbs:
           D: VCC # Tip
         params:
           symmetric: false
+          reverse: true 
         anchor:
           ref: thumb_far_arc
           shift: [trrs_shift_x, trrs_shift_y]
@@ -603,6 +606,7 @@ pcbs:
           to: GND
         params:
           symmetric: true
+          reverse: true 
         anchor:
           ref: thumb_alt_arc
           shift: [rswitch_shift_x + rswitch_pcb_offset_x, rswitch_shift_y + rswitch_pcb_offset_y]
