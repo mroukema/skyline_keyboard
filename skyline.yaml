@@ -1,10 +1,12 @@
 units:
     # Planned for choc switches with MX sized keys (work louder keycaps)
-    x: U # 19.05 MX spacing
-    y: U # 19.05 MX spacing
-    default_binding: 0.4
+    #x: U # 19.05 MX spacing
+    #y: U # 19.05 MX spacing
+    x: cx
+    y: cy
+    default_binding: 0.5
     df: default_binding
-    key_spacing: U
+    key_spacing: y
     outerpinky_splay: 0
     pinky_splay: -0
     ring_splay: -3
@@ -18,23 +20,23 @@ units:
     mc_shift_x: +x/2 + df + 0.5
     mc_shift_y: y/2 + 2
     mc_pcb_offset_x: 0 - x/2
-    mc_pcb_offset_y: y - 4
+    mc_pcb_offset_y: y - 2
     trrs_width: 6.1
     trrs_height: 12.2
     trrs_shift_x: x/2 + df - 0.1
-    trrs_shift_y: y/2 + 2.2
+    trrs_shift_y: y/2 + 4.2
     rswitch_width: 6.1
     rswitch_height: 4
     rswitch_shift_x: -x/2 - 0.5
     rswitch_shift_y: y/2 + mc_height + 3
     rswitch_pcb_offset_x: 2
-    rswitch_pcb_offset_y: 0
+    rswitch_pcb_offset_y: 2
     pswitch_width: 6.5
     pswitch_height: 3
     pswitch_shift_x: -x + 3.5
     pswitch_shift_y: y + mc_height + 4
     pswitch_pcb_offset_x: 3
-    pswitch_pcb_offset_y: 1
+    pswitch_pcb_offset_y: 3
     diode_shift_x: -0.4x + 1.5
     diode_shift_y: -12 
 
@@ -50,7 +52,6 @@ points:
     padding: key_spacing
     bind: df
     footprints:
-
         choc_hotswap:
           type: choc
           nets:
@@ -60,27 +61,16 @@ points:
               keycaps: true
               reverse: true
               hotswap: true
-        mx_hotswap:
-          type: mx
-          nets:
-            from: =row_net
-            to: =column_net
-          anchor:
-            rotate: 180
-          params:
-              keycaps: true
-              reverse: true
-              hotswap: true
-        #choc:
-        #  type: choc
-        #  anchor:
-        #    rotate: 180
-        #  nets:
-        #    from: =column_net
-        #    to: GND
-        #  params:
-        #      keycaps: true
-        #      reverse: true
+        choc:
+         type: choc
+         anchor:
+           rotate: 180
+         nets:
+           from: =column_net
+           to: =row_net
+         params:
+             keycaps: true
+             reverse: true
 
   zones:
     matrix:
@@ -164,7 +154,7 @@ points:
                     to: =column_net
             middle:
               shift: [0, -U]
-              bind: [2, 3, df, df]
+              bind: [2, 3, df + 2 , df]
               footprints:
                 diode:
                   type: diode
@@ -194,7 +184,7 @@ points:
             column_net: P7
           row_overrides:
             bottom:
-              bind: [df, 2, df, 1]
+              bind: [df, 3, df, 1]
             middle:
               bind: [df, 4, df, df]
               footprints:
@@ -270,8 +260,9 @@ points:
             column_net: P9
           row_overrides:
             bottom:
-              bind: [df, df, 7 + df, df]
+              bind: [df, df + 1, 7 + df, df]
             middle:
+              bind: [df, df + 1, df, df]
               footprints:
                 diode:
                   type: diode
@@ -282,7 +273,7 @@ points:
                     from: =column_net
                     to: =column_net
             top:
-              bind: [5 + df, df, df, df]
+              bind: [df + 3, df + 1, df, df]
               footprints:
                 diode:
                   type: diode
@@ -351,7 +342,7 @@ points:
           origin: [-10, 0]
           spread: 21
           key:
-            bind: [df, df, df, 1.3]
+            bind: [df, df + 1.5, df, 1.3]
             column_net: P10
       rows:
         arc:
@@ -457,7 +448,7 @@ outlines:
           ref: thumb_far_arc
           shift: [-x - 1.4, trrs_width - 2 ]
       - type: rectangle
-        size: [28 , mc_height + y]
+        size: [28 , mc_height + y + 2]
         anchor:
           ref: thumb_alt_arc
           shift: [-x + 1.7, y/2 - 2.6]
