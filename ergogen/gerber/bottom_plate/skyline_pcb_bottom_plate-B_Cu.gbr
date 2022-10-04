@@ -1,0 +1,54 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,(6.0.7-1)-1*%
+%TF.CreationDate,2022-09-15T11:20:25-04:00*%
+%TF.ProjectId,skyline_pcb_bottom_plate,736b796c-696e-4655-9f70-63625f626f74,v1.0.0*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Copper,L2,Bot*%
+%TF.FilePolarity,Positive*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW (6.0.7-1)-1) date 2022-09-15 11:20:25*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,ComponentPad*%
+%ADD10C,2.600000*%
+%TD*%
+%TA.AperFunction,ConnectorPad*%
+%ADD11C,3.800000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+%TO.P,REF\u002A\u002A,1*%
+%TO.N,N/C*%
+X189920000Y-203813307D03*
+D11*
+X189920000Y-203813307D03*
+%TD*%
+%TO.P,REF\u002A\u002A,1*%
+%TO.N,N/C*%
+X227094716Y-134929619D03*
+D10*
+X227094716Y-134929619D03*
+%TD*%
+%TO.P,REF\u002A\u002A,1*%
+%TO.N,N/C*%
+X166820000Y-195213307D03*
+D11*
+X166820000Y-195213307D03*
+%TD*%
+D10*
+%TO.P,REF\u002A\u002A,1*%
+%TO.N,N/C*%
+X230520000Y-161913307D03*
+D11*
+X230520000Y-161913307D03*
+%TD*%
+D10*
+%TO.P,REF\u002A\u002A,1*%
+%TO.N,N/C*%
+X146830000Y-154953307D03*
+D11*
+X146830000Y-154953307D03*
+%TD*%
+M02*

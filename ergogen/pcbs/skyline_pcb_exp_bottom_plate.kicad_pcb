@@ -1,0 +1,386 @@
+(kicad_pcb (version 20211014) (generator pcbnew)
+
+  (general
+    (thickness 1.6)
+  )
+
+  (paper "A3")
+  (title_block
+    (title "skyline_pcb")
+    (rev "v1.0.0")
+    (company "Unknown")
+  )
+
+  (layers
+    (0 "F.Cu" signal)
+    (31 "B.Cu" signal)
+    (32 "B.Adhes" user "B.Adhesive")
+    (33 "F.Adhes" user "F.Adhesive")
+    (34 "B.Paste" user)
+    (35 "F.Paste" user)
+    (36 "B.SilkS" user "B.Silkscreen")
+    (37 "F.SilkS" user "F.Silkscreen")
+    (38 "B.Mask" user)
+    (39 "F.Mask" user)
+    (40 "Dwgs.User" user "User.Drawings")
+    (41 "Cmts.User" user "User.Comments")
+    (42 "Eco1.User" user "User.Eco1")
+    (43 "Eco2.User" user "User.Eco2")
+    (44 "Edge.Cuts" user)
+    (45 "Margin" user)
+    (46 "B.CrtYd" user "B.Courtyard")
+    (47 "F.CrtYd" user "F.Courtyard")
+    (48 "B.Fab" user)
+    (49 "F.Fab" user)
+  )
+
+  (setup
+    (stackup
+      (layer "F.SilkS" (type "Top Silk Screen"))
+      (layer "F.Paste" (type "Top Solder Paste"))
+      (layer "F.Mask" (type "Top Solder Mask") (thickness 0.01))
+      (layer "F.Cu" (type "copper") (thickness 0.035))
+      (layer "dielectric 1" (type "core") (thickness 1.51) (material "FR4") (epsilon_r 4.5) (loss_tangent 0.02))
+      (layer "B.Cu" (type "copper") (thickness 0.035))
+      (layer "B.Mask" (type "Bottom Solder Mask") (thickness 0.01))
+      (layer "B.Paste" (type "Bottom Solder Paste"))
+      (layer "B.SilkS" (type "Bottom Silk Screen"))
+      (copper_finish "None")
+      (dielectric_constraints no)
+    )
+    (pad_to_mask_clearance 0.05)
+    (grid_origin 259.08 121.92)
+    (pcbplotparams
+      (layerselection 0x00010cc_ffffffff)
+      (disableapertmacros false)
+      (usegerberextensions false)
+      (usegerberattributes true)
+      (usegerberadvancedattributes true)
+      (creategerberjobfile true)
+      (svguseinch false)
+      (svgprecision 6)
+      (excludeedgelayer true)
+      (plotframeref false)
+      (viasonmask false)
+      (mode 1)
+      (useauxorigin false)
+      (hpglpennumber 1)
+      (hpglpenspeed 20)
+      (hpglpendiameter 15.000000)
+      (dxfpolygonmode true)
+      (dxfimperialunits true)
+      (dxfusepcbnewfont true)
+      (psnegative false)
+      (psa4output false)
+      (plotreference true)
+      (plotvalue true)
+      (plotinvisibletext false)
+      (sketchpadsonfab false)
+      (subtractmaskfromsilk false)
+      (outputformat 1)
+      (mirror false)
+      (drillshape 0)
+      (scaleselection 1)
+      (outputdirectory "../gerber/exp_bottom_plate/")
+    )
+  )
+
+  (net 0 "")
+
+  (footprint "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (layer "F.Cu")
+    (tedit 56D1B4CB) (tstamp 0f9add64-a920-4633-a648-409410b593a0)
+    (at 124.015222 232.757363)
+    (descr "Mounting Hole 2.2mm, M2, DIN965")
+    (tags "mounting hole 2.2mm m2 din965")
+    (attr exclude_from_pos_files exclude_from_bom)
+    (fp_text reference "REF**" (at 0 -2.9) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 61181a73-f04d-4f8b-a29b-dccf487482e4)
+    )
+    (fp_text value "MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (at 0 2.9) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 5971f5dd-4620-49ee-a38e-57e67bb79dfc)
+    )
+    (fp_text user "${REFERENCE}" (at 0 0) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 3b0793a9-d8c2-4685-bf8e-88722455ff2f)
+    )
+    (fp_circle (center 0 0) (end 1.9 0) (layer "Cmts.User") (width 0.15) (fill none) (tstamp b7a0c755-8b28-474d-a669-fc2a0f3d0ac5))
+    (fp_circle (center 0 0) (end 2.15 0) (layer "F.CrtYd") (width 0.05) (fill none) (tstamp 6e689fa3-c277-4743-b79f-4cdd7cdb97a3))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "B.Cu" "B.Mask") (tstamp 65d33f4f-4a98-48fb-bb90-a63072cbe1df))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "F.Cu" "F.Mask") (tstamp 96cd739f-e2be-4f9b-a016-cfa309bbb3ab))
+    (pad "1" thru_hole circle (at 0 0) (size 2.6 2.6) (drill 2.2) (layers *.Cu *.Mask) (tstamp c9b6bb0e-1f40-4bcd-867c-7d32e76d9b13))
+  )
+
+  (footprint "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (layer "F.Cu")
+    (tedit 56D1B4CB) (tstamp 18119a62-b87e-4cf8-bd17-7860002c0c44)
+    (at 158.663673 251.794974)
+    (descr "Mounting Hole 2.2mm, M2, DIN965")
+    (tags "mounting hole 2.2mm m2 din965")
+    (attr exclude_from_pos_files exclude_from_bom)
+    (fp_text reference "REF**" (at 0 -2.9) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp fb1ffa3c-0492-4d82-aa83-7aba44e0beb2)
+    )
+    (fp_text value "MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (at 0 2.9) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp fd4d9a91-639f-4912-85a1-30764de2e48a)
+    )
+    (fp_text user "${REFERENCE}" (at 0 0) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 2f7ee195-dcc9-4936-a8f8-959f4f478cb8)
+    )
+    (fp_circle (center 0 0) (end 1.9 0) (layer "Cmts.User") (width 0.15) (fill none) (tstamp 54838035-92d9-454b-9ee1-43cc2101241d))
+    (fp_circle (center 0 0) (end 2.15 0) (layer "F.CrtYd") (width 0.05) (fill none) (tstamp 9ff916c4-8158-4f20-8eac-2fd68908a6ed))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "B.Cu" "B.Mask") (tstamp 3aa45ff6-33aa-4c88-809b-a106b3a90f42))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "F.Cu" "F.Mask") (tstamp 599bb3d4-6519-4276-8dae-f303a3aae25b))
+    (pad "1" thru_hole circle (at 0 0) (size 2.6 2.6) (drill 2.2) (layers *.Cu *.Mask) (tstamp b43ee99e-784f-4c66-a88a-fac748b9586e))
+  )
+
+  (footprint "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (layer "F.Cu")
+    (tedit 56D1B4CB) (tstamp 48fc98df-412b-4aa5-afaf-8bd9a7cee5b7)
+    (at 115.129124 160.655677)
+    (descr "Mounting Hole 2.2mm, M2, DIN965")
+    (tags "mounting hole 2.2mm m2 din965")
+    (attr exclude_from_pos_files exclude_from_bom)
+    (fp_text reference "REF**" (at 0 -2.9) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 68446797-9d29-4699-936f-4ab5cea3bab1)
+    )
+    (fp_text value "MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (at 0 2.9) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp c4b1acfe-4a07-4aae-8231-e7277714c5ad)
+    )
+    (fp_text user "${REFERENCE}" (at 0 0) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp fd04f412-4067-40c7-9b79-177f4e7cca41)
+    )
+    (fp_circle (center 0 0) (end 1.9 0) (layer "Cmts.User") (width 0.15) (fill none) (tstamp 6556d521-5d57-40c6-98a5-cf2bb6cb1e9b))
+    (fp_circle (center 0 0) (end 2.15 0) (layer "F.CrtYd") (width 0.05) (fill none) (tstamp 97c7e541-b67f-4494-bf17-7335651b3ee0))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "F.Cu" "F.Mask") (tstamp 08ca350e-6970-44c9-b5c8-f6b43eaa3b5e))
+    (pad "1" thru_hole circle (at 0 0) (size 2.6 2.6) (drill 2.2) (layers *.Cu *.Mask) (tstamp 2ce4c3c0-5585-4309-9230-0a61701489fc))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "B.Cu" "B.Mask") (tstamp d8c91d88-b79e-4138-8216-9b35773315ec))
+  )
+
+  (footprint "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (layer "F.Cu")
+    (tedit 56D1B4CB) (tstamp 9f5bdeee-979b-46a8-8062-07e65ee30b8d)
+    (at 198.819124 167.615677)
+    (descr "Mounting Hole 2.2mm, M2, DIN965")
+    (tags "mounting hole 2.2mm m2 din965")
+    (attr exclude_from_pos_files exclude_from_bom)
+    (fp_text reference "REF**" (at 0 -2.9) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 1bcd12f5-6246-4174-8e26-30978c3e44a0)
+    )
+    (fp_text value "MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (at 0 2.9) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 5246340f-89e1-40f2-8838-b31400d72dff)
+    )
+    (fp_text user "${REFERENCE}" (at 0 0) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 63c0261c-c996-4d43-8888-8db3383ae805)
+    )
+    (fp_circle (center 0 0) (end 1.9 0) (layer "Cmts.User") (width 0.15) (fill none) (tstamp 67a6823b-8495-4c85-b1dc-94a1e6d2943b))
+    (fp_circle (center 0 0) (end 2.15 0) (layer "F.CrtYd") (width 0.05) (fill none) (tstamp 779b32cd-2b3f-4b23-adad-3b4fdd76e09e))
+    (pad "1" thru_hole circle (at 0 0) (size 2.6 2.6) (drill 2.2) (layers *.Cu *.Mask) (tstamp 2ac05a61-5dc6-4a92-b503-67ac6bdd10a9))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "B.Cu" "B.Mask") (tstamp 62fccbf3-3ef7-4957-91a7-a99c3266e51a))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "F.Cu" "F.Mask") (tstamp a98fb742-fb15-4ef5-bd0a-7ecf843bfe61))
+  )
+
+  (footprint "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (layer "F.Cu")
+    (tedit 56D1B4CB) (tstamp a0c03580-d33e-4386-a9bd-232148ad0637)
+    (at 158.219124 209.515677 180)
+    (descr "Mounting Hole 2.2mm, M2, DIN965")
+    (tags "mounting hole 2.2mm m2 din965")
+    (attr exclude_from_pos_files exclude_from_bom)
+    (fp_text reference "REF**" (at 0 -2.9) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 8f5c5a0f-fdca-4fc9-b0d0-50d2cf37f587)
+    )
+    (fp_text value "MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (at 0 2.9) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 208df7c1-685b-4673-8375-ec816bab04ac)
+    )
+    (fp_text user "${REFERENCE}" (at 0 0) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp e466e397-19a6-4644-ab08-3897d45e6b3e)
+    )
+    (fp_circle (center 0 0) (end 1.9 0) (layer "Cmts.User") (width 0.15) (fill none) (tstamp 5a0a9dac-0e73-4446-8cf4-b9ac09fc660a))
+    (fp_circle (center 0 0) (end 2.15 0) (layer "F.CrtYd") (width 0.05) (fill none) (tstamp 2fc968dd-43f9-44a6-b904-fda7135751d9))
+    (pad "1" thru_hole circle (at 0 0 180) (size 2.6 2.6) (drill 2.2) (layers *.Cu *.Mask) (tstamp 09f66ed1-0744-4750-9b60-cdbe68e84869))
+    (pad "1" connect circle (at 0 0 180) (size 3.8 3.8) (layers "B.Cu" "B.Mask") (tstamp 89c68295-dd70-4ca5-9bf0-6bf4d272f904))
+    (pad "1" connect circle (at 0 0 180) (size 3.8 3.8) (layers "F.Cu" "F.Mask") (tstamp b8d5e9a6-ee15-4d44-8eba-adef9a58aba4))
+  )
+
+  (footprint "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (layer "F.Cu")
+    (tedit 56D1B4CB) (tstamp b46ecb7b-768a-4cd2-b56c-b3ad188da254)
+    (at 195.39384 140.631989)
+    (descr "Mounting Hole 2.2mm, M2, DIN965")
+    (tags "mounting hole 2.2mm m2 din965")
+    (attr exclude_from_pos_files exclude_from_bom)
+    (fp_text reference "REF**" (at 0 -2.9) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 6393c9b6-74e3-4928-8da4-a468edde83d9)
+    )
+    (fp_text value "MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (at 0 2.9) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 8ee5f85c-b0e2-4082-821d-a0d1cbb3515e)
+    )
+    (fp_text user "${REFERENCE}" (at 0 0) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 4cbdf58a-0845-4220-9560-faca3d9d5c66)
+    )
+    (fp_circle (center 0 0) (end 1.9 0) (layer "Cmts.User") (width 0.15) (fill none) (tstamp 23b66062-f738-485b-9426-e583592056ca))
+    (fp_circle (center 0 0) (end 2.15 0) (layer "F.CrtYd") (width 0.05) (fill none) (tstamp df1b3d45-be54-4233-a272-9dfafd299f8c))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "F.Cu" "F.Mask") (tstamp 0780979f-37e6-49d7-98d8-b67522cf17ca))
+    (pad "1" thru_hole circle (at 0 0) (size 2.6 2.6) (drill 2.2) (layers *.Cu *.Mask) (tstamp 991a769f-6c2b-48e4-bc8c-a7723fde69c2))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "B.Cu" "B.Mask") (tstamp cf2dd63e-d49a-406a-9479-98291d8c513d))
+  )
+
+  (footprint "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (layer "F.Cu")
+    (tedit 56D1B4CB) (tstamp dcae9f49-07fb-4853-98a5-e12e6251861b)
+    (at 135.119124 200.915677)
+    (descr "Mounting Hole 2.2mm, M2, DIN965")
+    (tags "mounting hole 2.2mm m2 din965")
+    (attr exclude_from_pos_files exclude_from_bom)
+    (fp_text reference "REF**" (at 0 -2.9) (layer "F.SilkS")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp d211a715-a7a9-442e-a788-b4514ee340b6)
+    )
+    (fp_text value "MountingHole_2.2mm_M2_DIN965_Pad_TopBottom" (at 0 2.9) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 95d4c347-82ff-44a4-a612-a0d72a6193fc)
+    )
+    (fp_text user "${REFERENCE}" (at 0 0) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+      (tstamp 7d211716-c7c7-470d-8e25-b5925651b212)
+    )
+    (fp_circle (center 0 0) (end 1.9 0) (layer "Cmts.User") (width 0.15) (fill none) (tstamp 688db4d0-db7e-4b7d-8fb3-3d1fe4f30110))
+    (fp_circle (center 0 0) (end 2.15 0) (layer "F.CrtYd") (width 0.05) (fill none) (tstamp 7862b166-87d2-4424-a47d-364c9f501548))
+    (pad "1" thru_hole circle (at 0 0) (size 2.6 2.6) (drill 2.2) (layers *.Cu *.Mask) (tstamp 24e13456-1f24-418e-9acb-3b4b17c936ea))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "F.Cu" "F.Mask") (tstamp d5cf4fc4-b354-423b-87b4-7076bf7bc1a9))
+    (pad "1" connect circle (at 0 0) (size 3.8 3.8) (layers "B.Cu" "B.Mask") (tstamp d90a9053-d81d-4452-a2cf-374812520818))
+  )
+
+  (gr_arc (start 154.083504 170.26237) (mid 155.558034 170.911212) (end 156.075894 172.436681) (layer "Edge.Cuts") (width 0.2) (tstamp 056857e5-0545-46cb-a8d0-60049e503942))
+  (gr_arc (start 115.63258 133.901817) (mid 116.143548 132.458884) (end 117.525167 131.799886) (layer "Edge.Cuts") (width 0.2) (tstamp 167682d9-f463-429a-bb8b-9b501579d65d))
+  (gr_line (start 136.919124 128.885563) (end 136.919124 120.26237) (layer "Edge.Cuts") (width 0.2) (tstamp 1772a1b8-ff00-4932-9479-79f68fba4832))
+  (gr_line (start 234.676163 216.12189) (end 238.810879 204.113804) (layer "Edge.Cuts") (width 0.2) (tstamp 182d426d-35b8-4c49-9710-2f2c10cefd54))
+  (gr_line (start 237.570978 201.571631) (end 223.76513 196.817896) (layer "Edge.Cuts") (width 0.2) (tstamp 1f182684-8f70-4bad-a946-fa2fe88b15d3))
+  (gr_arc (start 196.547363 137.81517) (mid 197.905117 138.521992) (end 198.365441 139.981871) (layer "Edge.Cuts") (width 0.2) (tstamp 232b6032-afcb-41d1-bb9e-29f415b91eef))
+  (gr_arc (start 81.275355 209.315763) (mid 79.807682 208.880997) (end 79.077255 207.535776) (layer "Edge.Cuts") (width 0.2) (tstamp 2d7917ca-a29a-460d-a991-63b5bf9b45ba))
+  (gr_line (start 156.519124 132.530681) (end 156.519124 120.26237) (layer "Edge.Cuts") (width 0.2) (tstamp 2fc6cb45-e6b3-4eb6-bd74-970f8089be77))
+  (gr_arc (start 154.519124 118.26237) (mid 155.933394 118.848121) (end 156.519124 120.26237) (layer "Edge.Cuts") (width 0.2) (tstamp 3231e2c4-0e40-40e7-826b-dea14c8b78ce))
+  (gr_line (start 230.967805 226.58459) (end 234.581612 216.089333) (layer "Edge.Cuts") (width 0.2) (tstamp 326dc33b-d5e6-4d26-b983-5efca25d0c99))
+  (gr_line (start 139.272614 170.26237) (end 154.083504 170.26237) (layer "Edge.Cuts") (width 0.2) (tstamp 362811d7-5c5c-419e-94ca-b457ed1dd764))
+  (gr_line (start 75.474025 154.119798) (end 92.679254 152.311455) (layer "Edge.Cuts") (width 0.2) (tstamp 36794803-9c1c-4533-b619-8cbc9312f31c))
+  (gr_arc (start 137.275355 172.367042) (mid 137.821853 170.885636) (end 139.272614 170.26237) (layer "Edge.Cuts") (width 0.2) (tstamp 38d9a0ef-38ab-4821-9c55-27b4fef62ddf))
+  (gr_line (start 191.566753 217.69123) (end 210.861601 221.792476) (layer "Edge.Cuts") (width 0.2) (tstamp 405c3179-7b34-4566-9094-f5af47a23d2a))
+  (gr_arc (start 227.323863 162.008755) (mid 228.58538 162.875757) (end 228.864335 164.380874) (layer "Edge.Cuts") (width 0.2) (tstamp 406b212d-692d-4e5c-92eb-802030943d5f))
+  (gr_arc (start 116.367032 147.916002) (mid 115.890574 149.319562) (end 114.57883 150.009717) (layer "Edge.Cuts") (width 0.2) (tstamp 47af39dc-879f-441c-8226-57f19dd1db51))
+  (gr_arc (start 210.861601 221.792476) (mid 210.980254 221.821511) (end 211.096914 221.857734) (layer "Edge.Cuts") (width 0.2) (tstamp 48888d5b-d76f-4aad-a3d8-5e908ba13aff))
+  (gr_arc (start 230.967805 226.58459) (mid 229.953508 227.731057) (end 228.425631 227.824491) (layer "Edge.Cuts") (width 0.2) (tstamp 4fc5b1ad-eca1-449c-8be3-7c5cbd040c36))
+  (gr_arc (start 171.804615 233.515658) (mid 129.208524 250.645376) (end 145.19851 207.608473) (layer "Edge.Cuts") (width 0.2) (tstamp 5119c6d2-1781-47be-87e8-275c621113fb))
+  (gr_line (start 81.275355 209.315763) (end 98.480584 207.507421) (layer "Edge.Cuts") (width 0.2) (tstamp 528d1716-af17-4881-bd05-14b285e8915e))
+  (gr_line (start 117.525167 131.799886) (end 135.023796 130.882822) (layer "Edge.Cuts") (width 0.2) (tstamp 56ac10c4-5ee3-4ba4-a7ce-3a8680473192))
+  (gr_line (start 178.615859 136.246367) (end 196.547363 137.81517) (layer "Edge.Cuts") (width 0.2) (tstamp 57b2a0ec-7f87-4b37-8be6-e66c7ac01059))
+  (gr_line (start 115.63258 133.901817) (end 116.367032 147.916001) (layer "Edge.Cuts") (width 0.2) (tstamp 5e205d0a-88d3-4c76-a3c9-d2ad337e53d7))
+  (gr_line (start 175.317033 216.28342) (end 191.56555 217.704981) (layer "Edge.Cuts") (width 0.2) (tstamp 5e625eec-3912-49e9-b444-767ab0d75867))
+  (gr_line (start 154.94 185.42) (end 156.075894 172.436681) (layer "Edge.Cuts") (width 0.2) (tstamp 647b0d55-256e-48e3-a37f-121c86cc8520))
+  (gr_line (start 234.581612 216.089333) (end 234.676163 216.12189) (layer "Edge.Cuts") (width 0.2) (tstamp 64d2b9bf-2d19-40c3-b724-4d7da6b73507))
+  (gr_line (start 137.275355 172.367042) (end 137.770181 181.808879) (layer "Edge.Cuts") (width 0.2) (tstamp 6b074067-f755-439a-8291-36a95ce908ba))
+  (gr_line (start 197.156427 153.800972) (end 198.365441 139.981871) (layer "Edge.Cuts") (width 0.2) (tstamp 7720c3ff-275c-43bc-987b-ddd872c9016a))
+  (gr_line (start 137.822517 182.807509) (end 138.837834 202.180922) (layer "Edge.Cuts") (width 0.2) (tstamp 7d6bcf8e-182f-496d-afd1-5a251bb0a799))
+  (gr_arc (start 223.76513 196.817896) (mid 222.675522 195.911726) (end 222.459972 194.511036) (layer "Edge.Cuts") (width 0.2) (tstamp 7d9fcf6a-268f-49d2-b7f9-27680c14aced))
+  (gr_line (start 137.770181 181.808879) (end 137.822517 182.807509) (layer "Edge.Cuts") (width 0.2) (tstamp 7dd23de2-675f-4379-914b-e55503986eb1))
+  (gr_line (start 92.679255 152.311455) (end 114.57883 150.009717) (layer "Edge.Cuts") (width 0.2) (tstamp 7edb9213-80d0-471b-b54a-c3e5d41be103))
+  (gr_line (start 138.919124 118.26237) (end 154.519124 118.26237) (layer "Edge.Cuts") (width 0.2) (tstamp 81f51b30-5c79-4da4-b002-aaac6fad1219))
+  (gr_line (start 178.611501 136.296176) (end 178.615859 136.246367) (layer "Edge.Cuts") (width 0.2) (tstamp 8aa82922-b334-49b6-83e1-75f9c098d464))
+  (gr_line (start 153.190835 205.413054) (end 154.852845 186.416195) (layer "Edge.Cuts") (width 0.2) (tstamp 92c728c4-fed1-488a-820b-f25996db8f7d))
+  (gr_arc (start 138.837834 202.180922) (mid 138.32688 203.623868) (end 136.945247 204.282853) (layer "Edge.Cuts") (width 0.2) (tstamp 9947e76a-00cb-4f93-9bd9-d155b4706275))
+  (gr_line (start 211.096914 221.857735) (end 228.425631 227.824491) (layer "Edge.Cuts") (width 0.2) (tstamp a213927a-a88e-47aa-8e34-59116b84f566))
+  (gr_line (start 98.480584 207.507421) (end 121.36591 205.102076) (layer "Edge.Cuts") (width 0.2) (tstamp a3a9b806-2e6a-4cce-9e23-bd7b7a770d25))
+  (gr_arc (start 136.919124 128.885563) (mid 136.369871 130.262289) (end 135.023796 130.882822) (layer "Edge.Cuts") (width 0.2) (tstamp a52c29b9-1592-42b0-a385-a0704b654cbd))
+  (gr_line (start 171.81107 233.409338) (end 173.150333 218.101498) (layer "Edge.Cuts") (width 0.2) (tstamp a6c5d406-5a2b-4987-b2e7-c6784b95c0f2))
+  (gr_arc (start 171.804616 233.515658) (mid 171.807135 233.462455) (end 171.81107 233.409338) (layer "Edge.Cuts") (width 0.2) (tstamp ac37e81b-38a1-42d3-a6c8-17ed7c88fe46))
+  (gr_arc (start 136.919124 120.26237) (mid 137.504906 118.848171) (end 138.919124 118.26237) (layer "Edge.Cuts") (width 0.2) (tstamp b2171248-3737-43b7-8234-60d18f6e11e4))
+  (gr_arc (start 237.570978 201.571631) (mid 238.717406 202.585942) (end 238.810879 204.113804) (layer "Edge.Cuts") (width 0.2) (tstamp b56bb961-1812-4954-afba-56381dbc216f))
+  (gr_line (start 151.303117 207.236002) (end 145.195764 207.556074) (layer "Edge.Cuts") (width 0.2) (tstamp b90c4180-275c-4c96-a7f4-1d01990d3583))
+  (gr_arc (start 173.150332 218.101498) (mid 173.857155 216.743737) (end 175.317033 216.28342) (layer "Edge.Cuts") (width 0.2) (tstamp c1f77eae-dc6c-40d1-9490-692cfa723a2e))
+  (gr_line (start 191.566753 217.69123) (end 191.56555 217.704981) (layer "Edge.Cuts") (width 0.2) (tstamp ca0461ca-96ad-4b37-a6fd-afe4225170b9))
+  (gr_arc (start 198.732993 155.931578) (mid 197.541077 155.164946) (end 197.156427 153.800972) (layer "Edge.Cuts") (width 0.2) (tstamp caad4a47-85c5-4920-b7ae-d12ee64c3276))
+  (gr_arc (start 153.190835 205.413054) (mid 152.587763 206.677427) (end 151.303117 207.236002) (layer "Edge.Cuts") (width 0.2) (tstamp cc3af8b9-dbd9-404b-9010-e5c9331903b5))
+  (gr_line (start 121.470295 205.093861) (end 136.945247 204.282853) (layer "Edge.Cuts") (width 0.2) (tstamp d0091236-914d-4d80-b375-3ec403006c10))
+  (gr_line (start 158.344812 134.523071) (end 178.611501 136.296176) (layer "Edge.Cuts") (width 0.2) (tstamp ee5df620-8bf3-4e2b-8120-cd101b571c77))
+  (gr_line (start 222.459972 194.511036) (end 228.864335 164.380874) (layer "Edge.Cuts") (width 0.2) (tstamp f5aa3e1d-3b36-4807-b864-9783e1378205))
+  (gr_line (start 198.732993 155.931578) (end 227.323863 162.008755) (layer "Edge.Cuts") (width 0.2) (tstamp fab54dc7-78f7-4449-b889-136ee5b95eb8))
+  (gr_line (start 145.195764 207.556074) (end 145.19851 207.608473) (layer "Edge.Cuts") (width 0.2) (tstamp fab8f4e0-4bfc-4fc6-b9b2-3cbd8eb339f7))
+  (gr_arc (start 158.344812 134.523071) (mid 157.044556 133.881863) (end 156.519124 132.530681) (layer "Edge.Cuts") (width 0.2) (tstamp fb37272d-58e7-4837-bc8a-e494ad7bb00b))
+  (gr_arc (start 121.36591 205.102076) (mid 121.418049 205.097285) (end 121.470295 205.093861) (layer "Edge.Cuts") (width 0.2) (tstamp fb5414a7-07b2-4e1e-aa96-d12c62cdcca9))
+  (gr_line (start 154.852845 186.416195) (end 154.94 185.42) (layer "Edge.Cuts") (width 0.2) (tstamp fceb08d9-4ded-4ca5-8e31-fbac713068de))
+  (gr_line (start 73.694039 156.317899) (end 79.077255 207.535776) (layer "Edge.Cuts") (width 0.2) (tstamp fe10888d-1bac-453e-93dc-25478cad2070))
+  (gr_arc (start 73.694039 156.317899) (mid 74.128788 154.850187) (end 75.474026 154.119798) (layer "Edge.Cuts") (width 0.2) (tstamp ffaaadd8-f79b-45ff-aba8-0eea1ce9be2a))
+
+  (group "" (id e37a3a32-e442-46d9-b808-13a60fba6f2f)
+    (members
+      056857e5-0545-46cb-a8d0-60049e503942
+      167682d9-f463-429a-bb8b-9b501579d65d
+      1772a1b8-ff00-4932-9479-79f68fba4832
+      182d426d-35b8-4c49-9710-2f2c10cefd54
+      1f182684-8f70-4bad-a946-fa2fe88b15d3
+      232b6032-afcb-41d1-bb9e-29f415b91eef
+      2d7917ca-a29a-460d-a991-63b5bf9b45ba
+      2fc6cb45-e6b3-4eb6-bd74-970f8089be77
+      3231e2c4-0e40-40e7-826b-dea14c8b78ce
+      326dc33b-d5e6-4d26-b983-5efca25d0c99
+      362811d7-5c5c-419e-94ca-b457ed1dd764
+      36794803-9c1c-4533-b619-8cbc9312f31c
+      38d9a0ef-38ab-4821-9c55-27b4fef62ddf
+      405c3179-7b34-4566-9094-f5af47a23d2a
+      406b212d-692d-4e5c-92eb-802030943d5f
+      47af39dc-879f-441c-8226-57f19dd1db51
+      48888d5b-d76f-4aad-a3d8-5e908ba13aff
+      4fc5b1ad-eca1-449c-8be3-7c5cbd040c36
+      5119c6d2-1781-47be-87e8-275c621113fb
+      528d1716-af17-4881-bd05-14b285e8915e
+      56ac10c4-5ee3-4ba4-a7ce-3a8680473192
+      57b2a0ec-7f87-4b37-8be6-e66c7ac01059
+      5e205d0a-88d3-4c76-a3c9-d2ad337e53d7
+      5e625eec-3912-49e9-b444-767ab0d75867
+      647b0d55-256e-48e3-a37f-121c86cc8520
+      64d2b9bf-2d19-40c3-b724-4d7da6b73507
+      6b074067-f755-439a-8291-36a95ce908ba
+      7720c3ff-275c-43bc-987b-ddd872c9016a
+      7d6bcf8e-182f-496d-afd1-5a251bb0a799
+      7d9fcf6a-268f-49d2-b7f9-27680c14aced
+      7dd23de2-675f-4379-914b-e55503986eb1
+      7edb9213-80d0-471b-b54a-c3e5d41be103
+      81f51b30-5c79-4da4-b002-aaac6fad1219
+      8aa82922-b334-49b6-83e1-75f9c098d464
+      92c728c4-fed1-488a-820b-f25996db8f7d
+      9947e76a-00cb-4f93-9bd9-d155b4706275
+      a213927a-a88e-47aa-8e34-59116b84f566
+      a3a9b806-2e6a-4cce-9e23-bd7b7a770d25
+      a52c29b9-1592-42b0-a385-a0704b654cbd
+      a6c5d406-5a2b-4987-b2e7-c6784b95c0f2
+      ac37e81b-38a1-42d3-a6c8-17ed7c88fe46
+      b2171248-3737-43b7-8234-60d18f6e11e4
+      b56bb961-1812-4954-afba-56381dbc216f
+      b90c4180-275c-4c96-a7f4-1d01990d3583
+      c1f77eae-dc6c-40d1-9490-692cfa723a2e
+      ca0461ca-96ad-4b37-a6fd-afe4225170b9
+      caad4a47-85c5-4920-b7ae-d12ee64c3276
+      cc3af8b9-dbd9-404b-9010-e5c9331903b5
+      d0091236-914d-4d80-b375-3ec403006c10
+      ee5df620-8bf3-4e2b-8120-cd101b571c77
+      f5aa3e1d-3b36-4807-b864-9783e1378205
+      fab54dc7-78f7-4449-b889-136ee5b95eb8
+      fab8f4e0-4bfc-4fc6-b9b2-3cbd8eb339f7
+      fb37272d-58e7-4837-bc8a-e494ad7bb00b
+      fb5414a7-07b2-4e1e-aa96-d12c62cdcca9
+      fceb08d9-4ded-4ca5-8e31-fbac713068de
+      fe10888d-1bac-453e-93dc-25478cad2070
+      ffaaadd8-f79b-45ff-aba8-0eea1ce9be2a
+    )
+  )
+)

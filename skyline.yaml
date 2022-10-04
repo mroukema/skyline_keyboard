@@ -18,30 +18,30 @@ units:
     mc_width: 32
     mc_height: 18
     mc_shift_x: +x/2 + df + 0.5
-    mc_shift_y: y/2 + 2
+    mc_shift_y: y/2 + 12
     mc_pcb_offset_x: 0 - x/2
-    mc_pcb_offset_y: y - 2
+    mc_pcb_offset_y: y - 2.4
     trrs_width: 6.1
     trrs_height: 12.2
-    trrs_shift_x: x/2 + df - 0.1
-    trrs_shift_y: y/2 + 4.2
+    trrs_shift_x: x/2 + df + 1.5
+    trrs_shift_y: y/2 + 3.8
     rswitch_width: 6.1
     rswitch_height: 4
     rswitch_shift_x: -x/2 - 0.5
     rswitch_shift_y: y/2 + mc_height + 3
     rswitch_pcb_offset_x: 2
-    rswitch_pcb_offset_y: 2
+    rswitch_pcb_offset_y: 1.6
     pswitch_width: 6.5
     pswitch_height: 3
     pswitch_shift_x: -x + 3.5
     pswitch_shift_y: y + mc_height + 4
     pswitch_pcb_offset_x: 3
-    pswitch_pcb_offset_y: 3
-    diode_shift_x: -0.4x + 1.5
-    diode_shift_y: -12 
+    pswitch_pcb_offset_y: 2.6
+    diode_shift_x: -0.5x
+    diode_shift_y: -0.5y
 
     dConnection_anchor_x: 0
-    dConnection_anchor_y: -3.9 * y
+    dConnection_anchor_y: -4.2 * y
 
     panel_fillet: 2
     
@@ -59,7 +59,7 @@ points:
             to: =row_net
           params:
               keycaps: true
-              reverse: true
+              reverse: false
               hotswap: true
         choc:
          type: choc
@@ -70,7 +70,8 @@ points:
            to: =row_net
          params:
              keycaps: true
-             reverse: true
+             reverse: false
+             hotswap: false
 
   zones:
     matrix:
@@ -82,7 +83,7 @@ points:
           stagger: 0
           rotate: outerpinky_splay
           key:
-            bind: [3.5 + df, df, df, df]
+            bind: [3.5 + df, df, df, df + 0.3]
             column_net: P4
           row_overrides:
             bottom:
@@ -139,10 +140,11 @@ points:
           row_overrides:
             alt:
               shift: [0, -U]
-              bind: [df, df, 4.4 + df, df]
+              bind: [df, df + 0.3, 4.4 + df, df]
               row_net: P18
             bottom:
               shift: [0, -U]
+              bind: [df, df + 0.3, df, df]
               footprints:
                 diode:
                   type: diode
@@ -166,7 +168,7 @@ points:
                     to: =column_net
             top:
               shift: [0, -U]
-              bind: [df, 3, 2, df]
+              bind: [df, 3, 2, df + 0.3]
               footprints:
                 diode:
                   type: diode
@@ -197,6 +199,7 @@ points:
                     from: =column_net
                     to: =column_net
             top:
+              bind: [df, df + 0.3, df, df + 0.3]
               footprints:
                 diode:
                   type: diode
@@ -216,10 +219,11 @@ points:
           row_overrides:
             alt:
               shift: [0, -U]
-              bind: [df, df, 11 + df, df]
+              bind: [df, df, 11 + df, df + 0.3]
               row_net: P18
             bottom:
               shift: [0, -U]
+              bind: [df, df, df, df + 0.3]
               footprints:
                 diode:
                   type: diode
@@ -286,7 +290,7 @@ points:
 
       rows:
         bottom:
-          row_net: P21
+          row_net: P19
         middle:
           row_net: P20
           footprints:
@@ -299,7 +303,7 @@ points:
                   from: =column_net
                   to: =column_net
         top:
-          row_net: P19
+          row_net: P21
           footprints:
               diode:
                 type: diode
@@ -335,15 +339,37 @@ points:
           spread: 21
           key:
             bind: [df + 0, df + 1.9, df, 4]
-            column_net: P16
+            column_net: P7
+            footprints:
+                diode:
+                  type: diode
+                  params:
+                    mode: 'Dual'
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
 
         far:
           rotate: thumb_splay
           origin: [-10, 0]
           spread: 21
           key:
-            bind: [df, df + 1.5, df, 1.3]
-            column_net: P10
+            bind: [df, df + 1.5, df, 1.8]
+            column_net: P5
+            footprints:
+                diode:
+                  type: diode
+                  params:
+                    mode: 'Dual'
+                  anchor:
+                    shift: [diode_shift_x, diode_shift_y]
+                    rotate: 90
+                  nets:
+                    from: =column_net
+                    to: =column_net
       rows:
         arc:
           row_net: P18
@@ -448,10 +474,10 @@ outlines:
           ref: thumb_far_arc
           shift: [-x - 1.4, trrs_width - 2 ]
       - type: rectangle
-        size: [28 , mc_height + y + 2]
+        size: [33 , mc_height + y + 2 + 10]
         anchor:
           ref: thumb_alt_arc
-          shift: [-x + 1.7, y/2 - 2.6]
+          shift: [-x + 1, y/2 - 2.6]
     component_panel_populated:
       - type: outline
         name: component_panel
@@ -563,7 +589,7 @@ pcbs:
           rotate: 270
         params:
           orientation: down
-          reverse: true
+          reverse: false
       pswitch_pcb:
         type: slider
         nets:
@@ -571,7 +597,7 @@ pcbs:
           to: undefined
         params:
           symmetric: true
-          reverse: true 
+          reverse: false 
         anchor:
           ref: thumb_alt_arc
           shift: [pswitch_shift_x + pswitch_pcb_offset_x, pswitch_shift_y + pswitch_pcb_offset_y]
@@ -585,20 +611,20 @@ pcbs:
           D: VCC # Tip
         params:
           symmetric: false
-          reverse: true 
+          reverse: false 
         anchor:
           ref: thumb_far_arc
           shift: [trrs_shift_x, trrs_shift_y]
           rotate: 270
-      rswitch_pcb:
-        type: alps
-        nets:
-          from: RST
-          to: GND
-        params:
-          symmetric: true
-          reverse: true 
-        anchor:
-          ref: thumb_alt_arc
-          shift: [rswitch_shift_x + rswitch_pcb_offset_x, rswitch_shift_y + rswitch_pcb_offset_y]
-          rotate: 90
+      # rswitch_pcb:
+      #   type: alps
+      #   nets:
+      #     from: RST
+      #     to: GND
+      #   params:
+      #     symmetric: true
+      #     reverse: false 
+      #   anchor:
+      #     ref: thumb_alt_arc
+      #     shift: [rswitch_shift_x + rswitch_pcb_offset_x, rswitch_shift_y + rswitch_pcb_offset_y]
+      #     rotate: 90
