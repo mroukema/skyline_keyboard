@@ -20,7 +20,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "skyline.h"
 #include "quantum.h"
-
-#define RGB_DI_PIN B1
-#define RGBLED_NUM 1
-#define RGBLED_SPLIT 1

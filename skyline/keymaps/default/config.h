@@ -20,13 +20,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define USE_MATRIX_I2C
-
+#define USE_I2C
+#define IGNORE_MOD_TAP_INTERRUPT
 /* Select hand configuration */
 
-#define MASTER_LEFT
+// #define MASTER_LEFT
 // #define MASTER_RIGHT
-// #define EE_HANDS
+#define EE_HANDS
 
 //#define TAPPING_FORCE_HOLD
 //#define TAPPING_TERM 100
@@ -47,3 +47,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_SAT_STEP 17
     #define RGBLIGHT_VAL_STEP 17
 #endif
+
+#define TAPPING_TOGGLE 1
+#define TAPPING_TERM 300
+
+// #define PERMISSIVE_HOLD
+
+#undef ONESHOT_TIMEOUT
+#define ONESHOT_TIMEOUT 2998
+
+#define MOUSEKEY_INTERVAL 18
+
+#undef MOUSEKEY_MAX_SPEED
+#define MOUSEKEY_MAX_SPEED 10
+
+#undef MOUSEKEY_TIME_TO_MAX
+#define MOUSEKEY_TIME_TO_MAX 30
+
+#undef MOUSEKEY_WHEEL_TIME_TO_MAX
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 15

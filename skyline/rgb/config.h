@@ -20,7 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 #define USE_I2C
-#define SOFT_SERIAL_PIN D2
 
 /* ws2812 RGB LED */
 #define RGB_DI_PIN      B1
@@ -38,38 +37,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #   define RGBLIGHT_EFFECT_ALTERNATING
 #   define RGBLIGHT_EFFECT_TWINKLE
 
-#   define RGBLED_NUM 54
+#   define RGBLED_NUM 2
 #   define RGBLED_SPLIT \
-        { 27, 27 }
-#endif
-
-#ifdef RGB_MATRIX_ENABLE
-#    define RGBLED_NUM       54 // Number of LEDs
-#    define DRIVER_LED_TOTAL RGBLED_NUM
-#    define RGB_MATRIX_SPLIT \
-        { 27, 27 }
-#    define SPLIT_TRANSPORT_MIRROR
-
-#   define ENABLE_RGB_MATRIX_ALPHAS_MODS
-#   define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
-#   define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
-#   define ENABLE_RGB_MATRIX_BREATHING
-#   define ENABLE_RGB_MATRIX_BAND_SAT
-#   define ENABLE_RGB_MATRIX_BAND_VAL
-#   define ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
-#   define ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL
-#   define ENABLE_RGB_MATRIX_CYCLE_ALL
-#   define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
-#   define ENABLE_RGB_MATRIX_CYCLE_SPIRAL
-#   define ENABLE_RGB_MATRIX_RAINDROPS
-#   define ENABLE_RGB_MATRIX_HUE_BREATHING
-#   define ENABLE_RGB_MATRIX_PIXEL_FRACTAL
-#   define ENABLE_RGB_MATRIX_TYPING_HEATMAP
-#   define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-#   define ENABLE_RGB_MATRIX_SOLID_REACTIVE
-#   define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
-#   define ENABLE_RGB_MATRIX_SPLASH
-#   define ENABLE_RGB_MATRIX_SOLID_SPLASH
+        { 1, 1 }
 #endif
 
 #define DIODE_DIRECTION ROW2COL
