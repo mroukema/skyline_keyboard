@@ -33,7 +33,8 @@ enum tap_dance_codes {
     TD_ARW_LEFT,
     TD_ARW_DOWN,
     TD_ARW_RIGHT,
-    RET_RSTHD
+    RET_RSTHD,
+    CAPS_LOCK
 };
 
 enum layer_names {
@@ -41,7 +42,8 @@ enum layer_names {
     QWERTY,
     SYSTEM,
     SYMBOLS,
-    NUM
+    NUMPAD,
+    GAME
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -51,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
       KC_ESC,           MT(MOD_LSFT, KC_R), MT(MOD_LCTL, KC_S), MT(MOD_LALT, KC_T), MT(MOD_LGUI, KC_H), KC_D,                          KC_M,              MT(MOD_RGUI, KC_N), MT(MOD_RALT, KC_A), MT(MOD_RCTL, KC_I), MT(MOD_RSFT, KC_O),  KC_MINS,
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      TT(SYMBOLS),      KC_J,               KC_V,               KC_G,               KC_P,               KC_B,                          KC_X,              KC_W,               KC_DTEX,            KC_U,               KC_Q,                 TT(NUM),
+      TT(SYMBOLS),      KC_J,               KC_V,               KC_G,               KC_P,               KC_B,                          KC_X,              KC_W,               KC_DTEX,            KC_U,               KC_Q,               TT(NUMPAD),
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
                         KC_NO,              KC_NO,              TT(SYSTEM),         KC_E,               KC_BSPC,                       KC_ENT,            KC_SPC,             KC_DEL,             KC_NO,              KC_NO
                      //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
@@ -63,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
       KC_ESC,           MT(MOD_LSFT, KC_A), MT(MOD_LCTL, KC_S), MT(MOD_LALT, KC_D), MT(MOD_LGUI, KC_F), KC_G,                          KC_H,              MT(MOD_RGUI, KC_J), MT(MOD_RALT, KC_K), MT(MOD_RCTL, KC_L), MT(MOD_RSFT, KC_SCLN),  KC_QUOT,
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      TT(SYMBOLS),      KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,                          KC_N,              KC_M,               KC_COMM,            KC_DOT,             KC_SLSH,               TT(NUM),
+      TT(SYMBOLS),      KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,                          KC_N,              KC_M,               KC_COMM,            KC_DOT,             KC_SLSH,             TT(NUMPAD),
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
                         KC_TRANSPARENT,     KC_TRANSPARENT,     TT(SYSTEM),         KC_SPC,             KC_BSPC,                       KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),       LAYER_ENTRY
                      //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
@@ -72,9 +74,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------------------------------------------------------------------------------------------------------------------.            ,-------------------------------------------------------------------------------------------------------------------.
       KC_F1,            KC_F2,              KC_F3,              KC_F4,              KC_F5,              KC_F6,                         KC_F7,             KC_F8,               KC_F9,             KC_F10,             KC_F11,              KC_F12,
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      KC_ESC,           KC_MS_BTN1,         KC_MS_LEFT,         KC_MS_UP,           KC_MS_RIGHT,        KC_PGUP,                       KC_HOME,           TD(TD_ARW_LEFT),    TD(TD_ARW_UP),      TD(TD_ARW_RIGHT),   KC_TRANSPARENT,      KC_TRANSPARENT,
+      KC_ESC,           KC_MS_BTN1,         KC_MS_LEFT,         KC_MS_UP,           KC_MS_RIGHT,        KC_PGUP,                       KC_HOME,           TD(TD_ARW_LEFT),    TD(TD_ARW_UP),      TD(TD_ARW_RIGHT),   KC_TRANSPARENT,      TD(CAPS_LOCK),
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      TT(SYMBOLS),      KC_MS_BTN2,         KC_V,               KC_MS_DOWN,         KC_P,               KC_PGDOWN,                     KC_END,            KC_TRANSPARENT,     TD(TD_ARW_DOWN),    KC_TRANSPARENT,     KC_TRANSPARENT,      KC_TRANSPARENT,          
+      TT(SYMBOLS),      KC_MS_BTN2,         KC_V,               KC_MS_DOWN,         KC_P,               KC_PGDOWN,                     KC_END,            KC_TRANSPARENT,     TD(TD_ARW_DOWN),    KC_TRANSPARENT,     KC_TRANSPARENT,      TO(GAME),          
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
                         KC_MS_BTN3,         KC_TRANSPARENT,     LAYER_ENTRY,        KC_TRANSPARENT,     KC_BSPC,                       KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),          TO(QWERTY)
                      //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
@@ -85,23 +87,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
       KC_ESC,         MT(MOD_LSFT, KC_LABK), KC_LBRACKET,        KC_LPRN,            KC_LCBR,            KC_TILD,                      KC_GRAVE,          KC_RCBR,            KC_RPRN,            KC_RBRACKET,      MT(MOD_RSFT, KC_RABK), KC_UNDS,
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      LAYER_ENTRY,      KC_BSLASH,          KC_MINUS,           KC_PLUS,            KC_ASTR,            KC_EQUAL,                      KC_TRANSPARENT,    KC_PIPE,            KC_EXLM,            KC_SCOLON,          KC_TRANSPARENT,       TT(NUM),
+      LAYER_ENTRY,      KC_BSLASH,          KC_MINUS,           KC_PLUS,            KC_ASTR,            KC_EQUAL,                      KC_TRANSPARENT,    KC_PIPE,            KC_EXLM,            KC_SCOLON,          KC_TRANSPARENT,      TT(NUMPAD),
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
                         KC_TRANSPARENT,     KC_TRANSPARENT,     TT(SYSTEM),         KC_TRANSPARENT,     KC_BSPC,                        KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),       KC_TRANSPARENT
                      //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
   ),
-  [NUM] = LAYOUT_split_skyline_3x6_5(
+  [NUMPAD] = LAYOUT_split_skyline_3x6_5(
   //,--------------------------------------------------------------------------------------------------------------------.            ,-------------------------------------------------------------------------------------------------------------------.
-      KC_TAB,           KC_KP_COMMA,        KC_KP_7,            KC_KP_8,            KC_KP_9,             KC_KP_DOT,                     KC_Z,              KC_L,               KC_TRANSPARENT,    KC_SCLN,            KC_QUOT,             KC_EQUAL,
+      KC_TAB,           KC_KP_COMMA,        KC_KP_7,            KC_KP_8,            KC_KP_9,             KC_KP_DOT,                     KC_TRANSPARENT,    KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      KC_ESC,           KC_KP_ASTERISK,     KC_KP_4,            KC_KP_5,            KC_KP_6,             KC_KP_PLUS,                    KC_M,              TD(TD_ARW_LEFT),    TD(TD_ARW_UP),    TD(TD_ARW_RIGHT),   MT(MOD_RSFT, KC_O),  KC_MINS,
+      KC_ESC,           KC_KP_ASTERISK,     KC_KP_4,            KC_KP_5,            KC_KP_6,             KC_KP_PLUS,                    KC_TRANSPARENT,    TD(TD_ARW_LEFT),    TD(TD_ARW_UP),    TD(TD_ARW_RIGHT),   MT(MOD_RSFT, KC_O),  KC_TRANSPARENT,
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      TT(SYMBOLS),      KC_KP_SLASH,        KC_KP_1,            KC_KP_2,            KC_KP_3,            KC_KP_MINUS,                    KC_X,              KC_W,               TD(TD_ARW_DOWN),    KC_U,               KC_Q,              LAYER_ENTRY,
+      TT(SYMBOLS),      KC_KP_SLASH,        KC_KP_1,            KC_KP_2,            KC_KP_3,            KC_KP_MINUS,                    KC_TRANSPARENT,    KC_TRANSPARENT,    TD(TD_ARW_DOWN),     KC_TRANSPARENT,      KC_TRANSPARENT,     LAYER_ENTRY,
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
                         KC_KP_0,            KC_TRANSPARENT,     KC_LSFT,            KC_KP_ENTER,        KC_BSPC,                       KC_ENT,            KC_SPC,             KC_DEL,              TD(RET_RSTHD),      KC_TRANSPARENT
                      //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
-  )
-  
+  ),
+  [GAME] = LAYOUT_split_skyline_3x6_5(
+  //,--------------------------------------------------------------------------------------------------------------------.            ,-------------------------------------------------------------------------------------------------------------------.
+      KC_2,              KC_TAB,            KC_Q,               KC_1,               KC_E,               KC_R,                          KC_F5,             KC_5,              KC_6,               KC_7,               KC_8,                KC_F9,
+  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
+      KC_3,              KC_LSFT,           KC_A,               KC_W,               KC_D,               KC_F,                          KC_G,              KC_LEFT,            KC_UP,              KC_RIGHT,           KC_RSFT,             KC_QUOT,
+  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
+      KC_4,              KC_LCTL,           KC_Z,               KC_S,               KC_X,               KC_C,                          KC_V,              KC_B,               KC_DOWN,            KC_DOT,             KC_RCTL,             LAYER_ENTRY,
+  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
+                         KC_NO,             KC_NO,              KC_ENT,             KC_SPC,             KC_BSPC,                       KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),       KC_TRANSPARENT
+                     //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
+  ),
 };
 
 void keyboard_post_init_user(void) {
@@ -156,7 +168,7 @@ enum {
     MORE_TAPS
 };
 
-static tap dance_state[5];
+static tap dance_state[6];
 
 uint8_t dance_step(qk_tap_dance_state_t *state);
 
@@ -188,9 +200,13 @@ void on_dance_right(qk_tap_dance_state_t *state, void *user_data);
 void dance_right_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_right_reset(qk_tap_dance_state_t *state, void *user_data);
 
-void on_dance_return_to_rsthd(qk_tap_dance_state_t *state, void *user_data);
+void on_dance_nothing(qk_tap_dance_state_t *state, void *user_data);
+
 void dance_return_to_rsthd_finished(qk_tap_dance_state_t *state, void *user_data);
 void dance_return_to_rsthd_reset(qk_tap_dance_state_t *state, void *user_data);
+ 
+void dance_capslock_finished(qk_tap_dance_state_t *state, void *user_data);
+void dance_capslock_reset(qk_tap_dance_state_t *state, void *user_data);
 
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
@@ -199,7 +215,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_ARW_LEFT] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_left, dance_left_finished, dance_left_reset),
     [TD_ARW_DOWN] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_down, dance_down_finished, dance_down_reset),
     [TD_ARW_RIGHT] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_right, dance_right_finished, dance_right_reset),
-    [RET_RSTHD] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_return_to_rsthd, dance_return_to_rsthd_finished, dance_return_to_rsthd_reset)
+    [RET_RSTHD] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_nothing, dance_return_to_rsthd_finished, dance_return_to_rsthd_reset),
+    [CAPS_LOCK] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_nothing, dance_capslock_finished, dance_capslock_reset)
 };
 
 void on_dance_up(qk_tap_dance_state_t *state, void *user_data) {
@@ -330,7 +347,7 @@ void dance_right_reset(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[TD_ARW_RIGHT].step = 0;
 }
 
-void on_dance_return_to_rsthd(qk_tap_dance_state_t *state, void *user_data) {
+void on_dance_nothing(qk_tap_dance_state_t *state, void *user_data) {
 }
 
 void dance_return_to_rsthd_finished(qk_tap_dance_state_t *state, void *user_data) {
@@ -345,4 +362,19 @@ void dance_return_to_rsthd_reset(qk_tap_dance_state_t *state, void *user_data) {
     switch (dance_state[RET_RSTHD].step) {
     }
     dance_state[RET_RSTHD].step = 0;
+}  
+
+void dance_capslock_finished(qk_tap_dance_state_t *state, void *user_data) {
+    dance_state[CAPS_LOCK].step = dance_step(state);
+    switch (dance_state[CAPS_LOCK].step) {
+        case DOUBLE_HOLD: register_code16(KC_CAPSLOCK); break;
+    }
+}
+
+void dance_capslock_reset(qk_tap_dance_state_t *state, void *user_data) {
+    wait_ms(10);
+    switch (dance_state[CAPS_LOCK].step) {
+        case DOUBLE_HOLD: unregister_code16(KC_CAPSLOCK); break;
+    }
+    dance_state[CAPS_LOCK].step = 0;
 }
