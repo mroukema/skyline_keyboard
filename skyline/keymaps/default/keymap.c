@@ -21,10 +21,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LAYER_ENTRY KC_TRANSPARENT
 
 enum custom_keycodes {
-  KC_DTEX,
+  // dot/comma that shift to exclemation/question mark
+  KC_DTEX = SAFE_RANGE,
   KC_CMQM,
-  KC_L_PACB,
-  KC_R_PACB
+
+  // Parens/braces that shift to thier mirror
+  KC_TG_LPRN,
+  KC_TG_RPRN,
+  KC_TG_LBRC,
+  KC_TG_RBRC,
+  KC_TG_LCBR,
+  KC_TG_RCBR,
+  KC_TG_LLT,
+  KC_TG_RGT,
+
+  // Symbols that shift to numbers
+  KC_SLSH_0,            
+  KC_AMPR_1,           
+  KC_AT_2,
+  KC_HASH_3,            
+  KC_DLR_4,                       
+  KC_PERC_5,           
+  KC_CIRC_6,            
+  KC_QUES_7,            
+  KC_COLN_8,            
+  KC_DQUO_9
 };
 
 // Tap Dance declarations
@@ -40,9 +61,9 @@ enum tap_dance_codes {
 enum layer_names {
     RSTHD = 0,
     QWERTY,
-    SYSTEM,
     SYMBOLS,
     NUMPAD,
+    SYSTEM,
     GAME
 };
 
@@ -67,40 +88,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
       TT(SYMBOLS),      KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,                          KC_N,              KC_M,               KC_COMM,            KC_DOT,             KC_SLSH,             TT(NUMPAD),
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-                        KC_TRANSPARENT,     KC_TRANSPARENT,     TT(SYSTEM),         KC_SPC,             KC_BSPC,                       KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),       LAYER_ENTRY
+                        KC_TRANSPARENT,     KC_TRANSPARENT,     TT(SYSTEM),         KC_SPC,             KC_TRANSPARENT,                KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),       LAYER_ENTRY
+                     //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
+  ),
+  [SYMBOLS] = LAYOUT_split_skyline_3x6_5(
+  //,--------------------------------------------------------------------------------------------------------------------.            ,-------------------------------------------------------------------------------------------------------------------.
+      KC_GRAVE,         KC_SLSH_0,          KC_AMPR_1,         KC_AT_2,            KC_HASH_3,          KC_DLR_4,                       KC_PERC_5,         KC_CIRC_6,          KC_QUES_7,          KC_COLN_8,            KC_DQUO_9,           KC_PLUS,
+  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
+      KC_ESC,       MT(MOD_LSFT, KC_TG_LLT), KC_TG_LBRC,        KC_TG_LPRN,         KC_TG_LCBR,          KC_TILD,                      KC_GRAVE,          KC_TG_RCBR,         KC_TG_RPRN,        KC_TG_RBRC,       MT(MOD_RSFT, KC_TG_RGT),   KC_UNDS,
+  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
+      LAYER_ENTRY,      KC_BSLASH,          KC_MINUS,           KC_PLUS,            KC_ASTR,            KC_EQUAL,                      KC_TRANSPARENT,    KC_PIPE,            KC_EXLM,            KC_SCOLON,          KC_TRANSPARENT,      KC_NO,
+  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
+                        KC_TRANSPARENT,     KC_TRANSPARENT,     TT(SYSTEM),              KC_TRANSPARENT,     KC_BSPC,                        KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),       KC_TRANSPARENT
+                     //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
+  ),
+  [NUMPAD] = LAYOUT_split_skyline_3x6_5(
+  //,--------------------------------------------------------------------------------------------------------------------.            ,-------------------------------------------------------------------------------------------------------------------.
+      KC_TAB,           KC_KP_COMMA,            KC_KP_7,            KC_KP_8,            KC_KP_9,          KC_KP_DOT,                     KC_TRANSPARENT,    KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,
+  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
+      KC_ESC,    MT(MOD_LSFT, KC_KP_ASTERISK),  KC_KP_4,            KC_KP_5,            KC_KP_6,          KC_KP_PLUS,                    KC_TRANSPARENT,    TD(TD_ARW_LEFT),    TD(TD_ARW_UP),    TD(TD_ARW_RIGHT),   MT(MOD_RSFT, KC_NO),  KC_TRANSPARENT,
+  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
+      KC_NO,            KC_KP_SLASH,            KC_KP_1,            KC_KP_2,            KC_KP_3,          KC_KP_MINUS,                   KC_TRANSPARENT,    KC_TRANSPARENT,    TD(TD_ARW_DOWN),     KC_TRANSPARENT,      KC_TRANSPARENT,     LAYER_ENTRY,
+  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
+                        KC_KP_0,            KC_EQUAL,           TT(SYSTEM),         KC_KP_ENTER,        KC_BSPC,                       KC_ENT,            KC_SPC,             KC_DEL,              TD(RET_RSTHD),      KC_TRANSPARENT
                      //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
   ),
   [SYSTEM] = LAYOUT_split_skyline_3x6_5(
   //,--------------------------------------------------------------------------------------------------------------------.            ,-------------------------------------------------------------------------------------------------------------------.
       KC_F1,            KC_F2,              KC_F3,              KC_F4,              KC_F5,              KC_F6,                         KC_F7,             KC_F8,               KC_F9,             KC_F10,             KC_F11,              KC_F12,
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      KC_ESC,           KC_MS_BTN1,         KC_MS_LEFT,         KC_MS_UP,           KC_MS_RIGHT,        KC_PGUP,                       KC_HOME,           TD(TD_ARW_LEFT),    TD(TD_ARW_UP),      TD(TD_ARW_RIGHT),   KC_TRANSPARENT,      TD(CAPS_LOCK),
+      KC_ESC,           KC_MS_BTN1,         KC_MS_LEFT,         KC_MS_UP,           KC_MS_RIGHT,        KC_AUDIO_VOL_UP,               KC_HOME,           TD(TD_ARW_LEFT),    TD(TD_ARW_UP),      TD(TD_ARW_RIGHT),  MT(MOD_RCTL, KC_PGUP), TD(CAPS_LOCK),
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      TT(SYMBOLS),      KC_MS_BTN2,         KC_V,               KC_MS_DOWN,         KC_P,               KC_PGDOWN,                     KC_END,            KC_TRANSPARENT,     TD(TD_ARW_DOWN),    KC_TRANSPARENT,     KC_TRANSPARENT,      TO(GAME),          
+      KC_NO,            KC_MS_BTN2,         KC_V,               KC_MS_DOWN,         KC_P,               KC_AUDIO_VOL_DOWN,             KC_END,            KC_TRANSPARENT,     TD(TD_ARW_DOWN),    KC_TRANSPARENT,     KC_PGDOWN,           TO(GAME),          
   //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-                        KC_MS_BTN3,         KC_TRANSPARENT,     LAYER_ENTRY,        KC_TRANSPARENT,     KC_BSPC,                       KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),          TO(QWERTY)
-                     //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
-  ),
-  [SYMBOLS] = LAYOUT_split_skyline_3x6_5(
-  //,--------------------------------------------------------------------------------------------------------------------.            ,-------------------------------------------------------------------------------------------------------------------.
-      KC_TILD,           KC_SLSH,            KC_AMPR,            KC_AT,              KC_HASH,            KC_DLR,                       KC_PERC,           KC_CIRC,            KC_QUES,            KC_COLN,            KC_DQUO,             KC_PLUS,
-  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      KC_ESC,         MT(MOD_LSFT, KC_LABK), KC_LBRACKET,        KC_LPRN,            KC_LCBR,            KC_TILD,                      KC_GRAVE,          KC_RCBR,            KC_RPRN,            KC_RBRACKET,      MT(MOD_RSFT, KC_RABK), KC_UNDS,
-  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      LAYER_ENTRY,      KC_BSLASH,          KC_MINUS,           KC_PLUS,            KC_ASTR,            KC_EQUAL,                      KC_TRANSPARENT,    KC_PIPE,            KC_EXLM,            KC_SCOLON,          KC_TRANSPARENT,      TT(NUMPAD),
-  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-                        KC_TRANSPARENT,     KC_TRANSPARENT,     TT(SYSTEM),         KC_TRANSPARENT,     KC_BSPC,                        KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),       KC_TRANSPARENT
-                     //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
-  ),
-  [NUMPAD] = LAYOUT_split_skyline_3x6_5(
-  //,--------------------------------------------------------------------------------------------------------------------.            ,-------------------------------------------------------------------------------------------------------------------.
-      KC_TAB,           KC_KP_COMMA,        KC_KP_7,            KC_KP_8,            KC_KP_9,             KC_KP_DOT,                     KC_TRANSPARENT,    KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,
-  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      KC_ESC,           KC_KP_ASTERISK,     KC_KP_4,            KC_KP_5,            KC_KP_6,             KC_KP_PLUS,                    KC_TRANSPARENT,    TD(TD_ARW_LEFT),    TD(TD_ARW_UP),    TD(TD_ARW_RIGHT),   MT(MOD_RSFT, KC_O),  KC_TRANSPARENT,
-  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-      TT(SYMBOLS),      KC_KP_SLASH,        KC_KP_1,            KC_KP_2,            KC_KP_3,            KC_KP_MINUS,                    KC_TRANSPARENT,    KC_TRANSPARENT,    TD(TD_ARW_DOWN),     KC_TRANSPARENT,      KC_TRANSPARENT,     LAYER_ENTRY,
-  //|------------------+------------------+-------------------+-------------------+-------------------+------------------|            |------------------+-------------------+-------------------+-------------------+-------------------+----------------|
-                        KC_KP_0,            KC_TRANSPARENT,     KC_LSFT,            KC_KP_ENTER,        KC_BSPC,                       KC_ENT,            KC_SPC,             KC_DEL,              TD(RET_RSTHD),      KC_TRANSPARENT
+                        KC_MS_BTN3,        KC_MEDIA_PLAY_PAUSE,     LAYER_ENTRY,    KC_TRANSPARENT,     KC_TRANSPARENT,                KC_ENT,            KC_SPC,             KC_DEL,             TD(RET_RSTHD),          TO(QWERTY)
                      //`-------------------------------------------------------------------------------------------------'            `----------------------------------------------------------------------------------------'
   ),
   [GAME] = LAYOUT_split_skyline_3x6_5(
@@ -122,7 +143,10 @@ void keyboard_post_init_user(void) {
 void handle_custom_shifted_key(uint16_t base_keycode, uint16_t shifted_code, keyrecord_t *record) {
     if (record->event.pressed){
       if (get_mods() & MOD_BIT(KC_LSHIFT) || get_mods() & MOD_BIT(KC_RSHIFT)){
+        int shift_mod = get_mods() & (MOD_MASK_SHIFT);
+        del_mods(shift_mod);
         register_code16(shifted_code);
+        add_mods(shift_mod);
       } else {
         register_code16(base_keycode);
       }
@@ -134,18 +158,81 @@ void handle_custom_shifted_key(uint16_t base_keycode, uint16_t shifted_code, key
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    // dot/comma that shift to exclemation/question mark
     case KC_CMQM:
       handle_custom_shifted_key(KC_COMMA, KC_QUES, record);
       return false;
     case KC_DTEX:
       handle_custom_shifted_key(KC_DOT,   KC_EXLM, record);
       return false;
-    case KC_L_PACB:
-      handle_custom_shifted_key(KC_LPRN,  KC_LCBR, record);
+    
+    // Parens/braces that shift to thier mirror
+    case KC_TG_LPRN:
+      handle_custom_shifted_key(KC_LPRN,  KC_RPRN, record);
       return false;
-    case KC_R_PACB:
-      handle_custom_shifted_key(KC_RPRN,  KC_RCBR, record);
+    case KC_TG_RPRN:
+      handle_custom_shifted_key(KC_RPRN,  KC_LPRN, record);
       return false;
+
+    case KC_TG_LBRC:
+      handle_custom_shifted_key(KC_LBRC,  KC_RBRC, record);
+      return false;
+    case KC_TG_RBRC:
+      handle_custom_shifted_key(KC_RBRC,  KC_LBRC, record);
+      return false;
+
+    case KC_TG_LCBR:
+      handle_custom_shifted_key(KC_LCBR,  KC_RCBR, record);
+      return false;
+    case KC_TG_RCBR:
+      handle_custom_shifted_key(KC_RCBR,  KC_LCBR, record);
+      return false;
+    // Special handling for mirrorable GT and LT signs as they are on mod tap keys
+    case LSFT_T(KC_TG_LLT):
+      if(record->tap.count) { 
+        handle_custom_shifted_key(KC_LT,  KC_GT, record);  
+        return false;
+      }
+      break;
+    case RSFT_T(KC_TG_RGT):
+      if(record->tap.count) { 
+        handle_custom_shifted_key(KC_GT,  KC_LT, record);
+        return false;
+      }
+      break;
+
+    // Symbols that shift to numbers
+    case KC_SLSH_0:
+      handle_custom_shifted_key(KC_SLSH, KC_0, record);
+      return false;            
+    case KC_AMPR_1:
+      handle_custom_shifted_key(KC_AMPR, KC_1, record);
+      return false;           
+    case KC_AT_2:
+      handle_custom_shifted_key(KC_AT, KC_2, record);
+      return false;
+    case KC_HASH_3:
+      handle_custom_shifted_key(KC_HASH, KC_3, record);
+      return false;            
+    case KC_DLR_4:
+      handle_custom_shifted_key(KC_DLR, KC_4, record);
+      return false;                       
+    case KC_PERC_5:
+      handle_custom_shifted_key(KC_PERC, KC_5, record);
+      return false;           
+    case KC_CIRC_6:
+      handle_custom_shifted_key(KC_CIRC, KC_6, record);
+      return false;            
+    case KC_QUES_7:
+      handle_custom_shifted_key(KC_QUES, KC_7, record);
+      return false;            
+    case KC_COLN_8:
+      handle_custom_shifted_key(KC_COLN, KC_8, record);
+      return false;            
+    case KC_DQUO_9:
+      handle_custom_shifted_key(KC_DQUO, KC_9, record);
+      return false;
+
   }
   return true;
 }  
