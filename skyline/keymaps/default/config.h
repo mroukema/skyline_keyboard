@@ -49,7 +49,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #define TAPPING_TOGGLE 1
-#define TAPPING_TERM 300
+#define TAPPING_TERM 225
+
+
+#define COMBO_COUNT 2
+#define COMBO_MUST_HOLD_MODS
+#define COMBO_HOLD_TERM 150
 
 // #define PERMISSIVE_HOLD
 
